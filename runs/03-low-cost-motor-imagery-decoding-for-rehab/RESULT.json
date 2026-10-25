@@ -1,0 +1,17 @@
+{
+  "competition": "low-cost-motor-imagery-decoding-for-rehab",
+  "as_of": "2026-10-21T16:00Z (local 2026-10-22T00:00+08)",
+  "status": "today quota exhausted (5/5); continuing after 00:00 UTC reset with pre-validated v6",
+  "best_this_run": {"ref": 57487546, "score_public": 0.79, "rank": "36 of 51", "time": "2026-10-21T15:16Z"},
+  "leader_public": 0.93,
+  "account_historical_best": null,
+  "submissions_this_run": [
+    {"ref": 57482982, "design": "ML v1 8cfg uniform", "score_public": 0.77, "time": "2026-10-21T13:05Z"},
+    {"ref": 57484178, "design": "ML v2 8cfg w3=3 + OOF thr", "score_public": 0.77, "time": "2026-10-21T13:37Z"},
+    {"ref": 57487219, "design": "ML v4 11cfg OOF-acc weighted", "score_public": 0.78, "time": "2026-10-21T15:05Z"},
+    {"ref": 57487546, "design": "ML v3 11cfg A+B uniform", "score_public": 0.79, "time": "2026-10-21T15:16Z"},
+    {"ref": 57488811, "design": "ML v5 23cfg floor-0.76 weighted", "score_public": 0.78, "time": "2026-10-21T15:56Z"}
+  ],
+  "next": "v6 (35cfg + per-subject top-6 by OOF acc) after quota reset; expected ~0.81",
+  "failures": ["www.googleapis.com upload route blocked -> in-kernel API submission via private notebooks", "v3/v4 notebook v1 NameError SLUG at final submit (fixed in v2, resubmitted)", "CPU batch session cap of 5 (shared account) caused intermittent push blocks -> retry loops"]
+}

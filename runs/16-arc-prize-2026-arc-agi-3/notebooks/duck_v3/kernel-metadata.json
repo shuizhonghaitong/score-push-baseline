@@ -1,0 +1,27 @@
+{
+ "id": "lilac1996/arc-agi-3-duck-harness-run16-v3",
+ "title": "Arc Agi 3 Duck Harness Run16 V3",
+ "code_file": "nb.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_internet": false,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "accelerator": "nvidiaRtxPro6000",
+ "machine_shape": "nvidiaRtxPro6000",
+ "dataset_sources": [
+  "jakobbrggen/taaf-kaggle-source-anim-20260807-anim",
+  "driessmit1/arc3-vllm-h100-wheelhouse-v3",
+  "driessmit1/vrfai-qwen3-6-27b-fp8-hf-snapshot"
+ ],
+ "competition_sources": [
+  "arc-prize-2026-arc-agi-3"
+ ],
+ "model_sources": [
+  "foysalemonshanto/qwen3-8-27b-fp8-repacked-v1/pytorch/hf-fp8/1"
+ ],
+ "keywords": [
+  "gpu"
+ ]
+}

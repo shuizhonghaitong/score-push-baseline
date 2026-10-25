@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-25T21:11:49.003967+08:00",
+  "kind": "submission_reconstruction",
+  "passed": true,
+  "run": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/04-low-cost-motor-imagery-decoding-for-rehab-cross-subject",
+  "output": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/artifacts/eeg-submission.csv",
+  "rows": 360,
+  "saved_best_submission": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/04-low-cost-motor-imagery-decoding-for-rehab-cross-subject/submissions/blend_v5_cpu.csv",
+  "sha256": "9cdcbee0421bc33c667917cf12c8925baf74cac57d0a551c4cf79ed49e1ab4ae",
+  "saved_sha256": "9cdcbee0421bc33c667917cf12c8925baf74cac57d0a551c4cf79ed49e1ab4ae",
+  "byte_identical": true,
+  "inputs": [
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/04-low-cost-motor-imagery-decoding-for-rehab-cross-subject/submissions/nb_v3f_out/test_probs.csv",
+      "sha256": "71bb724f45f7bf5a47671c5ab78ec94a853fef757bde77ed966253bf2489a594"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/04-low-cost-motor-imagery-decoding-for-rehab-cross-subject/submissions/nb_dlcpu_out/test_probs.csv",
+      "sha256": "0e5bfe4926da0708903d808fb85076c39b192fc0f6dfc83f1cac8a8986dbffa4"
+    }
+  ],
+  "historical_public_score": 0.76,
+  "historical_submission_id": 57498703,
+  "training_rerun": false,
+  "official_score_reproduced": false,
+  "limitations": [
+    "Reconstructs best submitted predictions from retained ML/DL probabilities; does not retrain upstream models",
+    "DL IDs use saved global trial order; hidden test labels are unavailable"
+  ]
+}

@@ -1,0 +1,14 @@
+attempt,timestamp,method,validation_protocol,validation_score,public_score,artifact,outcome
+v1-2,2026-10-22T02:55Z,smoke schema check (lilac1996/pump-or-dump-lab-smoke v1),kaggle notebook smoke,N/A (infrastructure),N/A,infrastructure: fixed __file__ in notebooks,infra pass
+v3,2026-10-22T03:02Z,unpatched duplicate push,kaggle notebook smoke,N/A,N/A,infra: AMM wallet col is signing_wallet,infra fail
+v4,2026-10-22T03:05Z,smoke schema check v2,kaggle notebook smoke,pass (schema verified),N/A,train=19304 test=443 archive=15934; 61 tape days; failed~51% of curve txs,infra pass
+v5,2026-10-22T03:08Z,full pipeline wf,kaggle notebook wf,N/A,N/A,infra: mig table has duplicate mints,infra fail
+v6,2026-10-22T03:13Z,full pipeline wf v2,kaggle notebook wf,N/A,N/A,infra: AMM subwindow boolean alignment bug,infra fail
+v7,2026-10-22T03:16Z,full pipeline wf v3,kaggle notebook wf,N/A,N/A,infra: per-day frames share column names (join->concat),infra fail
+v8,2026-10-22T03:19Z,full pipeline wf v4,kaggle notebook wf,features OK: 35730 tokens x 84 feats in 202s, N/A,infra: mt column clash on label join,infra fail
+v9,2026-10-22T03:27Z,full pipeline wf v5 (28-model LGB, 8-day walk-forward),kaggle notebook wf,pending,N/A,first real walk-forward,running
+v18,2026-10-22T05:05Z,pipeline v18 CALIB=off (400 trees, 1 seed),kaggle notebook wf,errored: duplicate random_state kwarg (LGB_CLF/LGB_REG dicts),N/A,code/pipeline.py fixed,infra fail (fixed; awaiting CPU session slot)
+v19,2026-10-22T07:25Z,pipeline patch (EVTHR/PBLEND/N_MC gates + qmax blend + single-class guard + schema-aware reads + new wf baselines),local plumbing on synthetic labels (zero signal -> 0 trades expected),plumbing pass: code paths run, unit check on quantile_survival OK,N/A,code/pipeline.py,infra pass
+v20,2026-10-22T08:20Z,pipeline v20: +v4 wallet-activity feats (FEAT_V4), CASCADE_P conditional-cascade blend, HGBW HGB ensemble, refined TP grid (84 pts), extra creation feats; all plumbing-verified,kaggle notebook (pending slot),N/A,N/A,code/pipeline.py + notebooks/lab2 + notebooks/lab3,ready; waiting for batch-session slot
+v21,2026-10-22T08:55Z,lab3 notebook hardening: schema-probe cell + labels mirror cell; poller coverage secured (bridge session + poll3),kaggle notebook (pending slot),N/A,N/A,notebooks/lab3,ready
+v22,2026-10-22T10:50Z,poller fleet expanded: 2 lab3 pollers (30s/40s) added; lab3-first strategy (labels cell survives pipeline error),kaggle notebook race,N/A,N/A,/tmp/poll_lab3.sh,/tmp/poll_lab3b.sh,running

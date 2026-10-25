@@ -1,0 +1,9 @@
+{
+  "mode": "local_gpu_pool",
+  "candidate_gpus": [2, 3],
+  "reserve_memory_mib": 8192,
+  "maximum_start_utilization_percent": 20,
+  "default_requested_memory_gib": 16,
+  "cuda_python": "/mnt/disk3/liuyutong_home/miniconda3/envs/qwen/bin/python",
+  "preference": "Train and extract features locally first; use Kaggle for required submission execution or when local resources cannot support the workload"
+}

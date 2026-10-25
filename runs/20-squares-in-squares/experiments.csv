@@ -1,0 +1,9 @@
+time_utc,attempt,method,local_score,public_score,outcome,artifacts
+2026-10-23T01:30Z,early-attempt-1,raw CSV upload via kaggle CLI,,,failed: proxy blocked www.googleapis.com CONNECT; reconciled not_registered on live account,
+2026-10-23T02:57Z,early-attempt-2,grid-only baseline recheck,28.9376699165,,not submitted; reconciled not_registered; grid kept as baseline for non-covered n,
+2026-10-23T04:37Z,run20a,friedman 185 svg packings + deotte bank + skarin certified bank; 1000 puzzles official-verified,22.4795353098,22.4795353098,submitted ref 57549279; exact local==public match,outputs/submission_run20a.csv.zip; sha256 a0089d9d...
+2026-10-23T04:54Z,run20b,"+ dariush bank (200 entries, L-cut constructions)",22.3881958098,22.3881958098,submitted ref 57549636; exact local==public match,outputs/submission_run20b.csv.zip; sha256 43888f4f...
+2026-10-23T05:00Z,run20c,"+ 8 kirilltym seam patches (n=460,461,532,917,982,985,991,992; int-e12 coords)",22.3879609958,22.3879609958,submitted ref 57549771; exact local==public match; rank 73/241 (LB 05:13:48Z),outputs/submission_run20c.csv.zip; sha256 51722b41...
+2026-10-23T05:19Z,seam-v2-26targets,"kirilltym seam_pressure+polish, 3 seeds x 900 steps, 26 medium-n targets",,,"1/26 hit: n=799 L 28.7936860->28.7921753 (gain 5.34e-5), official-verified; 15 skarin targets all 0 (certified)",logs/seam_results/2_*.json
+2026-10-23T05:33Z,seam-v3-abtest,"escalated configs (wider clamps, stronger shrink), 4 dariush-kirilltym n",,,0/4 gains; escalated configs not better than defaults on tested set,"logs/seam_results/c3_{333,370,410,587}.log"
+2026-10-23T05:40Z,seam-v3-dariush-sweep,multi-config seam (4 configs x 3 seeds) on 187 dariush entries + n=455,,,in progress at time of writing,logs/seam_results/3_*.json

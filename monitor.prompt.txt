@@ -1,0 +1,4 @@
+每次运行读取 /mnt/disk3/liuyutong_home/workspace/skill/score-push/.local/live/progress.txt、milestones.txt 和各任务的提交记录，核对所有比赛的阶段进展。
+与上次已报告的状态比较；把比较状态保存在 /mnt/disk3/liuyutong_home/workspace/skill/score-push/.local/live/chat-report-state.json。
+仅在出现新正式提交及得分、最好成绩提升、训练阶段完成、任务完成、失败或阻塞时，在当前对话用中文简短同步比赛、时间、Qwen 显卡、实际训练显卡、分数和已核实的排名。区分本轮成绩、历史成绩和本地验证；不确定的提交或排名明确标为未确认。
+状态没有变化时保持安静，不重复发送进度。不修改或重启比赛任务，不进行新的 Kaggle 提交；所有任务结束后停止监测。建议在当前项目、当前对话中每两分钟运行一次。

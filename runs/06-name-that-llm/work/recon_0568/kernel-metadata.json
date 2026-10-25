@@ -1,0 +1,27 @@
+{
+  "id": "dddmdd/modernbert-ultrabert-ettin-lb-0-568",
+  "id_no": 140289857,
+  "title": "ModernBERT + UltraBERT + Ettin | LB 0.568",
+  "code_file": "modernbert-ultrabert-ettin-lb-0-568.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [
+    "gpu",
+    "nlp",
+    "transformers"
+  ],
+  "dataset_sources": [
+    "dddmdd/ntl-finetuned-encoders"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+  "machine_shape": "NvidiaTeslaT4"
+}

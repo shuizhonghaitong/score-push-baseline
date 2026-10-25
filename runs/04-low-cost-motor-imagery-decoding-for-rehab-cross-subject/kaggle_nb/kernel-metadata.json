@@ -1,0 +1,18 @@
+{
+ "kernel_type": "notebook",
+ "language": "python",
+ "is_private": true,
+ "enable_internet": false,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "model": null,
+ "id": "lilac1996/motor-rehab-cross-subj-lr-cnn-v1",
+ "title": "motor-rehab-cross-subject-lr-cnn-ensemble",
+ "code_file": "source.ipynb",
+ "source_map": null,
+ "dataset_sources": [],
+ "competition_sources": [
+  "low-cost-motor-imagery-decoding-for-rehab-cross-subject"
+ ],
+ "model_sources": []
+}

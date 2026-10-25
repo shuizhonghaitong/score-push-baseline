@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-10-25T21:12:30.094376+08:00",
+  "kind": "submission_reconstruction",
+  "passed": true,
+  "run": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s",
+  "output": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/artifacts/housing-submission.csv",
+  "rows": 8534,
+  "inputs": [
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/data/train.csv",
+      "sha256": "3a74b5fc7edb44e2e060ae0a300af538161494cd337330c65a7f95d680fc5cb2"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/data/test.csv",
+      "sha256": "1f56c675fb742db79f8bad1ca859c8b4db118b3976717c72b1c41a34834740ea"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/models/oof_stack/oof.json",
+      "sha256": "341f0985eca5a678e231ee661e1727f051b28ea5a23cd0e978f1ed84ef80c7e3"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/models/oof_stack/summary.json",
+      "sha256": "333e39b56ba67109944849ba88e273c27b582b7a233bbf1bfb2db9e0a894e5b7"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/models/oof_stack/test_3seed.npz.npy",
+      "sha256": "e22afa2ae2cd09e3283173d5408c5e1e3643d152da4a09b15ca3c5589639ba55"
+    },
+    {
+      "path": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/models/oof_stack/blend_3seed_fixed.npy",
+      "sha256": "2c3a0d0ecbde1ff1dade2d927948611d93758060ec33ef26e13316c57293a9c4"
+    }
+  ],
+  "saved_best_submission": "/mnt/disk3/liuyutong_home/workspace/skill/score-push-baseline/runs/01-predicting-housing-affordability-in-the-u-s/subs/v4b_stack.csv",
+  "sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+  "saved_sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+  "byte_identical": true,
+  "variants": [
+    "lgb63",
+    "lgb31",
+    "lgb127",
+    "lgb63nc",
+    "xgb7",
+    "xgb5"
+  ],
+  "recovered_ridge_coefficients": [
+    0.10072152115388978,
+    0.2630610181043886,
+    -0.024279067666856453,
+    0.252217284954529,
+    0.19991492551922757,
+    0.209963792373957
+  ],
+  "recovered_ridge_intercept": -0.28225738802758116,
+  "oof_rows": 6830,
+  "oof_rmse": 7.926081285926268,
+  "saved_blend_max_absolute_error": 0.0,
+  "seen_zip_rows": 6830,
+  "drift_slope": 0.99648156533752,
+  "drift_intercept": -0.17385506977016263,
+  "historical_public_score": 6.98,
+  "historical_submission_id": 57478451,
+  "training_rerun": false,
+  "stack_refit_from_saved_oof": true,
+  "official_score_reproduced": false,
+  "independent_holdout_proven": false,
+  "limitations": [
+    "Reconstructs submission from retained base-model predictions; does not retrain base models",
+    "OOF labels were used to tune the stack; this is not an independent final test",
+    "Test prediction row identities are positional in the legacy NPY; full base-model provenance still needs checking"
+  ]
+}

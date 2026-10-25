@@ -1,0 +1,90 @@
+{
+ "competition": "predicting-housing-affordability-in-the-u-s",
+ "url": "https://www.kaggle.com/competitions/predicting-housing-affordability-in-the-u-s",
+ "account": "lilac1996",
+ "completed_at_utc": "2026-10-21T12:00:00Z",
+ "completion_status": "completed (autonomous run; best valid artifacts preserved)",
+ "metric": "0.2*RMSE(seen July zips) + 0.8*RMSE(new July zips), lower better",
+ "best_this_run": {
+  "public_score": 6.98,
+  "submission_id": 57478451,
+  "file": "subs/v4b_stack.csv",
+  "sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+  "local_proxy_composite": 6.581,
+  "local_parts": {
+   "seen_proxy_rmse": 1.203,
+   "new_proxy_rmse_oof_stack": 7.926
+  },
+  "leaderboard_rank_public": 16,
+  "teams_public": 114,
+  "leader_public": 4.296
+ },
+ "scored_submissions": [
+  {
+   "id": 57475576,
+   "file": "subs/v1_baseline.csv",
+   "public": 10.46,
+   "note": "baseline in-data only"
+  },
+  {
+   "id": 57477349,
+   "file": "subs/v2_ext.csv",
+   "public": 7.002,
+   "note": "+ external medianHomeValue + owner-cost ratios"
+  },
+  {
+   "id": 57478294,
+   "file": "subs/v4_stack.csv",
+   "public": 32.418,
+   "note": "BUG: 3-seed sum not divided by 3 (x3 scale); superseded, kept for record"
+  },
+  {
+   "id": 57478451,
+   "file": "subs/v4b_stack.csv",
+   "public": 6.98,
+   "note": "best; 6-model ridge stack 3-seed"
+  }
+ ],
+ "leaderboard_evidence": {
+  "public_snapshot_utc": "2026-10-21T11:42:38Z",
+  "file": ".kaggle-skill/leaderboard/predicting-housing-affordability-in-the-u-s/20261021T114238Z.json",
+  "rank": 16,
+  "score": 6.98,
+  "teams": 114,
+  "leader": 4.296,
+  "note": "public leaderboard = ~30% of test; private leaderboard not visible until deadline 2026-11-10T01:00Z"
+ },
+ "account_rank": {
+  "value": 16,
+  "scope": "public leaderboard, reflects this run's best submission (no older submissions by this account on this competition)"
+ },
+ "best_artifacts": {
+  "submission": "subs/v4b_stack.csv",
+  "code": [
+   "scripts/pipeline_v2.py",
+   "scripts/oof_stack.py",
+   "scripts/stack_full.py"
+  ],
+  "models": "models/oof_stack/{oof.json, test_3seed.npz.npy, blend_3seed_fixed.npy, summary.json}",
+  "fold_checkpoints": "models/v2_folds/ (25 LGBM fold test preds)"
+ },
+ "approach": {
+  "seen_zips": "drift-corrected June target (slope 0.9965, intercept -0.174 fitted May->June)",
+  "new_zips": "ridge blend (alpha=0, 6 coefs) of 6 models x 5 geo-folds x 3 seeds: LGBM(leaves63), LGBM(leaves31 lr0.01), LGBM(leaves127), LGBM(no City), XGB(d7), XGB(d5); features = competition numerics + derived (rent/income ratio, owner-cost ratios at 4-8% of external medianHomeValue, burden composite) + external (medianHomeValue, perCapitaIncome, populationDensity, medianAge, ownerOccupiedPct, housingUnits, population, medianGrossRent) + State/Metro/City categoricals; external source: kaggle dataset cybermaxtools/us-zip-codes-demographics (CC-BY 4.0, updated 2026-10-09)",
+  "validation": "geo-CV (whole-ZIP 5x3 splits, June row as July proxy) + May->June drift simulation for seen; local proxy composite 6.581 vs public 6.980 (+0.40 gap consistent across v2/v4b)"
+ },
+ "failures_and_incidents": [
+  "submission 57478294 (v4) scored 32.418 due to averaging bug (3-seed sum instead of mean); fixed and resubmitted as v4b (57478451, 6.980)",
+  "background job reaping by sandbox: several setsid/nohup jobs died; resolved by running chains in long-lived exec sessions",
+  "HouseTS.csv (CC-BY-NC-SA) downloaded but NOT used (noncommercial license risk)",
+  "Redfin 3GB city TSV (copyright-authors): downloaded+parsed (to 2026-05), but city-name coverage only ~29% of competition cities -> not used",
+  "US Census API / zillow.com / data.census.gov unreachable via available routes"
+ ],
+ "human_intervention": "none",
+ "quota_note": "4 of 5 daily submissions used on 2026-10-21; daily quota",
+ "stalled_avenues": [
+  "in-data features alone floor ~12.5 new-RMSE; external home value is the key (12.4->8.6->8.0); stack ->7.93 OOF",
+  "residuals uncorrelated with all available features (within-state home value, income, rent, density, age, N): remaining variance is ZIP heterogeneity not in accessible data",
+  "target shrinkage, state-demeaning, month feature, June weighting, RentIndex imputation, 2016/2018 ACS distribution stats, ACS-2023 demographics, ZHVI state trends, MLS listing snapshot: all tested, no gain"
+ ]
+}

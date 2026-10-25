@@ -1,0 +1,17 @@
+attempt,timestamp,method,config,protocol,score,notes
+V1,2026-10-22T12:30,linear index trend per cell,see train_v1,3fold-lite,-0.24,initial
+V2,2026-10-22T12:35,improved trend fit,see train_v2,3fold-lite,-0.25,
+V3,2026-10-22T12:43,climatology variants,see train_v3,3fold-lite,-0.38,
+V4,2026-10-22T13:00,daily-field OLS slope on F,see train_v4,3fold-lite,-0.25,trend model
+V5,2026-10-22T13:56,field calibration grid search,see train_v5,CV-ssp370,-0.2998,Jensen gap calibration; WSDI bottleneck
+V6a,2026-10-22T16:30,target curves (F-window median) + per-year level match,see train_v6,CV-ssp370,-0.5889,bug: year 85 uninitialized
+V7,2026-10-22T19:00,template-year predecessor: (ep/ec) wobble family + capped-sum loss,see train_v7,CV-ssp370,-0.116,SU at ceiling but FD/CSDI single-index ~-0.45 (family cannot express cold-end shape)
+V8,2026-10-22T21:15,template-year fields (per-cell template-year select + level shift d) + capped-sum secondary loss,see train_v8,CV-ssp370,0.0346,TXx/TNn reach ceiling; 585 fold +0.0582; test(3-ssp) build OK
+V9,2026-10-22T23:04,template-year + pr 2-year blend (per-cell adaptive) + const CSDI target,see train_v9,CV-ssp370,0.0453,BEST. 585 fold +0.0586; 126 fold -0.137 (weak low-F extrapolation fold)
+V9-sec-scale,2026-10-22T23:49,replace pool-mad norm with uniform secondary scale 20/30/50 (A/B on WSDI weight),see train_v9 --sec-scale,CV-ssp370,0.0367,DEAD END: hurts SU/ID/FD without helping WSDI/CSDI; pool-mad saturation is beneficial. Baseline retained
+T-only,2026-10-23T00:15,forcing->index sliding-window median used directly as prediction (no emulator),see fit_targets+score_lite,CV-ssp370/585,0.147/0.158,strong baseline; beats V9 on TXx/TNn/WSDI/CSDI/all-pr
+V9-hybrid,2026-10-23T00:21,per-index best-of: V9 emulator for SU/TR/FD/ID/GSL + T for the other 10,see train_v9 --use-t-for,CV-ssp370/585,0.201/0.213,BEST. winner set consistent across both folds; test submission built (submissions/submission_hybrid.parquet)
+2026-10-23T11:30,fullres-linear-v1,diag3+test,2015-anchor linear LBC-PCA no-quad no-gate 2-SSP{126,370},worker CPU,diag3 in-sample S: 126 +0.0110 / 370 +0.1582; temporal CV (out-of-time) 126 -0.1036 / 370 -0.1444; test deltas within 126/370 cone for temp/count indices; CDD/CWD/R95p biased
+2026-10-23T11:32,submission-v1,upload-failure,183MB snappy parquet GCS upload times out (read timeout 15s; googleapis ~18-550kB/s variable),kaggle CLI + SDK,NO submission registered (reconciled x2; status 0 used today)
+fullres-v1,2026-10-23T04:40,fullres linear v1 2-SSP{126,370} 2015-anchor no-quad no-gate,submissions/submission_fullres_v1_q2.parquet (q2 zstd19 64.6MB),LIVE PUBLIC,-0.07306,rank 69/102; huge jump from -0.44253 (rank 78); upload needed submit_direct.py curl PUT (requests-PUT stalls at 0)
+aero,2026-10-23T12:50,fullres temporal CV +aero(5 land aerosols+CF2CL2 per-row),job f7ae3ab9,temporal out-of-time,126 -0.5993 / 370 -0.6220 vs baseline -0.1036/-0.1444,DISCARDED: catastrophic like quadratics; aero flag exists but default off

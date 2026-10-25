@@ -1,0 +1,505 @@
+{
+  "runs": [
+    {
+      "run_id": "00-titanic-smoke",
+      "source_files": 0,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "00-titanic-smoke-v2",
+      "source_files": 2,
+      "historical_reference": {
+        "score": 0.77751,
+        "submission_id": null,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "01-predicting-housing-affordability-in-the-u-s",
+      "source_files": 20,
+      "historical_reference": {
+        "score": 6.98,
+        "submission_id": 57478451,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": "0.2*RMSE(seen July zips) + 0.8*RMSE(new July zips), lower better",
+        "artifact": "subs/v4b_stack.csv"
+      },
+      "status": "full_cpu_training_and_submission_reconstruction_verified_byte_identical",
+      "training_reproduction": "passed; 90 completed model fits",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Official hidden-score replay not performed; preserved historical public score is 6.98",
+        "Ridge was selected on development OOF labels; this is not an independent final test"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "subs/v4b_stack.csv",
+          "bytes": 228774,
+          "sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "models/oof_stack/oof.json",
+          "bytes": 1156380,
+          "sha256": "341f0985eca5a678e231ee661e1727f051b28ea5a23cd0e978f1ed84ef80c7e3",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "models/oof_stack/summary.json",
+          "bytes": 315,
+          "sha256": "333e39b56ba67109944849ba88e273c27b582b7a233bbf1bfb2db9e0a894e5b7",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "data/train.csv",
+          "bytes": 1749122,
+          "sha256": "3a74b5fc7edb44e2e060ae0a300af538161494cd337330c65a7f95d680fc5cb2",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "data/test.csv",
+          "bytes": 1069448,
+          "sha256": "1f56c675fb742db79f8bad1ca859c8b4db118b3976717c72b1c41a34834740ea",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "models/oof_stack/test_3seed.npz.npy",
+          "bytes": 409760,
+          "sha256": "e22afa2ae2cd09e3283173d5408c5e1e3643d152da4a09b15ca3c5589639ba55",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "models/oof_stack/blend_3seed_fixed.npy",
+          "bytes": 68400,
+          "sha256": "2c3a0d0ecbde1ff1dade2d927948611d93758060ec33ef26e13316c57293a9c4",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "02-soil-grain-size-from-photos",
+      "source_files": 8,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "03-low-cost-motor-imagery-decoding-for-rehab",
+      "source_files": 53,
+      "historical_reference": {
+        "score": 0.79,
+        "submission_id": 57487546,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Resolve v14-v17 candidate identity and actual per-trial split"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "04-low-cost-motor-imagery-decoding-for-rehab-cross-subject",
+      "source_files": 81,
+      "historical_reference": {
+        "score": 0.76,
+        "submission_id": 57498703,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "submission_reconstruction_verified",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Verify DL OOF/test provenance for public-best v5 blend",
+        "Metric replay does not prove training exclusion"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "submissions/blend_v5_cpu.csv",
+          "bytes": 3140,
+          "sha256": "9cdcbee0421bc33c667917cf12c8925baf74cac57d0a551c4cf79ed49e1ab4ae",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "submissions/nb_v3f_out/oof_ml.csv",
+          "bytes": 59986,
+          "sha256": "961ee3b73988755ae5a3a4158e12d982132973405305416de9c813bf82aa8da0",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "submissions/nb_dlcv_out/oof_dl.csv",
+          "bytes": 128621,
+          "sha256": "3aceb0c7f7c03b10563d8dc6e8a2ca05b0442a2bb2f35bac0551e5ed939cfb00",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "submissions/nb_dlcpu_out/test_probs.csv",
+          "bytes": 16143,
+          "sha256": "0e5bfe4926da0708903d808fb85076c39b192fc0f6dfc83f1cac8a8986dbffa4",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "submissions/nb_v3f_out/test_probs.csv",
+          "bytes": 16126,
+          "sha256": "71bb724f45f7bf5a47671c5ab78ec94a853fef757bde77ed966253bf2489a594",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "05-misconception-detection-in-k-12-student-math-workings",
+      "source_files": 53,
+      "historical_reference": {
+        "score": 0.50849,
+        "submission_id": null,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Recover validation row IDs/labels and exact public-best candidate"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "outputs/v1_oof_clip.npz",
+          "bytes": 1559789,
+          "sha256": "45e8db439a08077b50e8a8fe3cf950066c98e44bcd8b9dd09d4d14734845d0e3",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "06-name-that-llm",
+      "source_files": 93,
+      "historical_reference": {
+        "score": 0.444,
+        "submission_id": 57485820,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": "balanced accuracy (public LB until close)",
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Recover row IDs and label-column mapping",
+        "svc4_val.npz overlaps prefit training: excluded as trustworthy holdout",
+        "Map public-best 0.444 to exact source and predictions"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "work/svc_proxy.npz",
+          "bytes": 810042,
+          "sha256": "977285642f066f926faa4805bfbc8654f4bffa8ad2cedaa81e4661789cf58941",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "07-2026-ieee-big-data-traffic-flow-bench",
+      "source_files": 56,
+      "historical_reference": {
+        "score": 0.86515,
+        "submission_id": 57488369,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "08-umud-challenge-muscle-architecture-in-ultrasound-data",
+      "source_files": 25,
+      "historical_reference": {
+        "score": 0.44638,
+        "submission_id": null,
+        "source": "Existing method-attribution report; historical observation, artifact mapping not established"
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "No RESULT; reconcile exact scored submission",
+        "Sanity examples are not a holdout"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "09-filament-segmentation-2026",
+      "source_files": 54,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "No confirmed public score; locate actual split and complete RLE predictions"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "10-the-3lc-low-light-detection-challenge",
+      "source_files": 19,
+      "historical_reference": {
+        "score": 0.59039,
+        "submission_id": 57495546,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": null,
+        "artifact": null
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Locate validation detections and actual 733-image split",
+        "Model retained locally; not loaded during audit"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "outputs/tuned200/submission.csv",
+          "bytes": 1502630,
+          "sha256": "dee219f5674880c74e6672d2ecd5c80283ca99c0b091ac200f914660f1ff1ed4",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "models/runs/tuned200/weights/best.pt",
+          "bytes": 5524186,
+          "sha256": "cd06341eee2a1a617ff2d02ffaac0ead17c69f7a7ab50100a9ae4d89137519f7",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "11-memecoins-pump-or-dump",
+      "source_files": 22,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "12-neurips-2026-smart-buildings",
+      "source_files": 77,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Recompute aggregates with identical scenario IDs/step limits",
+        "No confirmed official public score"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "results/eval_v5_winter.json",
+          "bytes": 19598,
+          "sha256": "7d0a056c0f4f44c9ddf4f0090179a3e427eb0d5b76b30d7900733e0266f94c38",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "results/eval_v4_winter.json",
+          "bytes": 19593,
+          "sha256": "38bfeba44e9e1cb1f1f273f32d9e51214dca325b17af4640567bb33c5c3aea0d",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "results/eval_v4g_winter.json",
+          "bytes": 19558,
+          "sha256": "eeb5b4d8ae8b37998d603dd8932bac241960814fe82a468a013f94bc705c30e3",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "13-enveda-CASMI26-molecule-id-mass-spectra",
+      "source_files": 85,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "14-gemma-4-developer-agent",
+      "source_files": 54,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "15-arc-prize-2026-arc-agi-2",
+      "source_files": 0,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "16-arc-prize-2026-arc-agi-3",
+      "source_files": 121,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select complete reference with exact scoring inputs; interrupted work is not a completed baseline"
+      ],
+      "selected_local_artifacts": []
+    },
+    {
+      "run_id": "17-tabular-time-series-trading-signal-classification",
+      "source_files": 25,
+      "historical_reference": {
+        "score": 0.36833,
+        "submission_id": "57505474",
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": "average_precision_score (higher is better)",
+        "artifact": "outputs/submission_causal_v2b.csv"
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Resolve v2b clipping repair and source-to-submission identity",
+        "Persist actual time blocks; tuning blocks are not independent test"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "data/archive_btc_train.csv",
+          "bytes": 225912,
+          "sha256": "6cc0bbae56fea945a5641e4a02d5adfc24516906f25f4bfd6d47490ab9b36829",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "outputs/submission_causal_v2b.csv",
+          "bytes": 28205,
+          "sha256": "b0ba0ba85cb0b10cf46fa79cb805f8cbbfb3451d09e25e2eb5a08ee0e23924ff",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "18-climx-main-track",
+      "source_files": 70,
+      "historical_reference": {
+        "score": -0.07306,
+        "submission_id": 57549354,
+        "source": "Original RESULT.json; not a fresh platform verification",
+        "metric": "rnNSE (higher is better)",
+        "artifact": "submissions/submission_fullres_v1_q2.parquet"
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Record repaired data identities and actual time split",
+        "Full training reproduction requires substantial data and compute"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "submissions/submission_fullres_v1_q2.parquet",
+          "bytes": 64648696,
+          "sha256": "e84c82c1868051a6c73689ab45eb2a0a22a2860346ccf3d83b323fa181757627",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "19-soil-grain-size-from-photos",
+      "source_files": 23,
+      "historical_reference": {
+        "score": 42.30133,
+        "submission_id": null,
+        "source": "Existing method-attribution report; historical observation, artifact mapping not established"
+      },
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Recover sample IDs/labels for OOF; top10 differs from hand3 candidate",
+        "Link recovery to failed run02 without discarding failure evidence"
+      ],
+      "selected_local_artifacts": [
+        {
+          "path": "state/checkpoint.json",
+          "bytes": 3342,
+          "sha256": "80032659556447237da359ef3d103509e7c7c4d9472fe4a407a580499b2c7522",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "submissions/ens67_hand_grai.csv",
+          "bytes": 1126,
+          "sha256": "2323bca407fd9dd3358547fc4ba808d040d67dd8e508ae6e4e21213a0ba6bdb0",
+          "storage": "Original run; not uploaded or moved"
+        },
+        {
+          "path": "state/oof_top10.npz",
+          "bytes": 16870,
+          "sha256": "66e3d61597fcda1818a96f676dcd9f8c2568cf9eb10e7aaf2e986b14d2273d15",
+          "storage": "Original run; not uploaded or moved"
+        }
+      ]
+    },
+    {
+      "run_id": "20-squares-in-squares",
+      "source_files": 37,
+      "historical_reference": null,
+      "status": "historical_source_preserved; training_not_rerun",
+      "training_reproduction": "not_run",
+      "official_score_reproduction": "not_run",
+      "remaining_requirements": [
+        "Select packing bank and verify legality"
+      ],
+      "selected_local_artifacts": []
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "competition": "titanic",
+  "competition_title": "Titanic - Machine Learning from Disaster",
+  "run_dir": "/mnt/disk3/liuyutong_home/workspace/skill/score-push/runs/00-titanic-smoke-v2",
+  "completion_status": "success",
+  "scope": "minimal end-to-end smoke validation: cache reuse, simple train/validate, one file submission with score+rank confirmation, one private CPU notebook run with output download; no score chasing, no second official submission",
+  "started_at_utc": "2026-10-21T08:46:50Z",
+  "finished_at_utc": "2026-10-21T08:58:00Z",
+  "elapsed_seconds_approx": 690,
+  "account": "lilac1996",
+  "credential_method": "KAGGLE_API_TOKEN (private file), verified 2026-10-21T08:47Z",
+  "data_provenance": {
+    "source": "cached official competition data (not re-downloaded)",
+    "path": "/mnt/disk3/liuyutong_home/workspace/kaggle/competition-a/data/{train.csv,test.csv,gender_submission.csv}",
+    "md5": {
+      "train.csv": "2309cc5f04782ed9bb6016d9f4e381cf",
+      "test.csv": "7533b82eae4b582610cbd68aa636b017",
+      "gender_submission.csv": "30d1073b964a5d815431ec603a0de353"
+    },
+    "rows": {
+      "train": 891,
+      "test": 418
+    }
+  },
+  "model": {
+    "script": "titanic_smoke.py",
+    "description": "OrdinalEncoder + median imputer + RandomForestClassifier(n=400, depth=6, leaf>=3), seed 42, 11 features incl. Title/FamilySize/IsAlone/CabinDeck; single source used locally and in the Kaggle notebook",
+    "validation_protocol": "stratified 80/20 holdout, seed 42",
+    "local_validation_accuracy": 0.8212,
+    "artifacts": {
+      "submission": "outputs/submission_smoke_v2.csv",
+      "submission_sha256": "7a651d719c3f2f3ab5d0cac39c6493501b1b3a46364d0d6ae67a9d07e893fbc4",
+      "report": "outputs/validation_report.json"
+    }
+  },
+  "submission": {
+    "id": 57474412,
+    "status": "COMPLETE",
+    "public_score": 0.77751,
+    "sent_at_utc": "2026-10-21T08:51:21Z",
+    "scored_at_utc": "2026-10-21T08:51:44Z",
+    "message": "smoke-v2: RF baseline, holdout acc 0.8212 (end-to-end validation run)",
+    "file_checks": "all 5 passed (columns, rows, PassengerId match, no empty, finite values)",
+    "quota_used": "3 of 10 today (2 prior submissions from earlier runs + this one)"
+  },
+  "this_run_best": {
+    "public_score": 0.77751,
+    "local_best_validation": 0.8212,
+    "note": "identical to deterministic 2026-10-20 baseline (ref 57425525, public 0.77751), confirming reproducibility"
+  },
+  "account_best_and_rank": {
+    "note": "rank reflects the account's best public score, which this run ties",
+    "account_best_public_score": 0.77751,
+    "rank": 3788,
+    "teams_total": 11406,
+    "evidence_time_utc": "2026-10-21T08:52:13Z",
+    "evidence_file": ".kaggle-skill/leaderboard/titanic/20261021T085213Z.json",
+    "score_based_rank_interval": {
+      "method": "partial public board (top 2000 rows read)",
+      "top2000_cutoff_score": 0.78468,
+      "implication": "rank > 2000 because 0.78468 > 0.77751; exact rank 3788 from account-reported user_rank"
+    },
+    "verified": true
+  },
+  "notebook": {
+    "name": "lilac1996/titanic-smoke-v2-rf-baseline-cpu",
+    "title": "Titanic Smoke V2 Rf Baseline Cpu",
+    "url": "https://www.kaggle.com/code/lilac1996/titanic-smoke-v2-rf-baseline-cpu",
+    "version": 1,
+    "visibility": "private",
+    "accelerator": "none (CPU)",
+    "internet": "off",
+    "data_sources": [
+      "titanic competition data"
+    ],
+    "pushed_at_utc": "2026-10-21T08:52:56Z (completed; first watched status check at this time)",
+    "run_status": "COMPLETE",
+    "status_checked_utc": "2026-10-21T08:55:24Z (notebook-wait); 2026-10-21T08:57:30Z (kaggle kernels status recheck)",
+    "outputs_downloaded_to": "downloads/titanic-smoke-v2-rf-baseline-cpu-output",
+    "output_files": [
+      "submission_smoke_v2.csv",
+      "validation_report.json",
+      "titanic-smoke-v2-rf-baseline-cpu.log"
+    ],
+    "verification": {
+      "remote_submission_md5": "9478bc26b2bac1181baf08e5b7f08c23",
+      "local_submission_md5": "9478bc26b2bac1181baf08e5b7f08c23",
+      "md5_match": true,
+      "remote_holdout_accuracy": 0.8212,
+      "remote_report_matches_local": true
+    },
+    "run_status_complete_at_utc": "2026-10-21T08:55:24Z (notebook-wait observed COMPLETE)"
+  },
+  "history_reconciliation": {
+    "titanic_prior_submissions": "reviewed via status/ledger; latest prior: 57464633 (0.76794), 57463310 (0.76794) from 2026-10-21 early-morning runs; all COMPLETE, no pending or unresolved titanic attempts",
+    "name_that_llm_B02": "not applicable - no Name That LLM submission made or planned in this titanic run"
+  },
+  "failures_and_recoveries": [
+    "notebook-run initially watched the metadata id slug (titanic-smoke-v2-cpu-baseline) which did not match Kaggle's title-derived slug (titanic-smoke-v2-rf-baseline-cpu); 5 status checks failed, then notebook-wait on the correct slug confirmed COMPLETE and downloaded output. No duplicate push; metadata file synced to the real slug afterwards"
+  ],
+  "human_intervention": "none",
+  "gpu": "not used (CPU only; GPUs 4-7 and host GPU0 untouched)",
+  "experiments_log": "experiments.csv"
+}

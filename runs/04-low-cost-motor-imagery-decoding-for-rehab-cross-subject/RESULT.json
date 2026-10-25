@@ -1,0 +1,81 @@
+{
+  "competition": "low-cost-motor-imagery-decoding-for-rehab-cross-subject",
+  "status": "in_progress",
+  "run_start": "2026-10-21T12:15:00Z",
+  "scored_submissions": [
+    {
+      "ref": 57484458,
+      "score": 0.58,
+      "note": "v1 LR-ens bandpower+ERD+dynamics"
+    },
+    {
+      "ref": 57485588,
+      "score": 0.62,
+      "note": "v2 mixed ensemble BP+FBRTS+CSP + v1"
+    },
+    {
+      "ref": 57488164,
+      "score": 0.75,
+      "note": "v3 = v2 recipe + per-file balanced threshold (k=n//2 move per session)"
+    },
+    {
+      "ref": 57492945,
+      "score": 0.73,
+      "note": "v4e = v2 recipe + run-3 x2 weight + balanced; below v3 -> run-3 weight dropped"
+    },
+    {
+      "ref": 57498703,
+      "score": 0.76,
+      "note": "v5 = offline blend 0.45*ML(v3 recipe) + 0.55*DL(CPU 3-CNN) probs, OOF-tuned, per-file balanced"
+    },
+    {
+      "ref": 57506049,
+      "score": 0.75,
+      "note": "v6 = 0.40*ML(v3) + 0.60*GPU-DL(3-CNN, sc-arch, eval-mode) OOF-tuned, per-file balanced; 0.01 below v5"
+    }
+  ],
+  "best_score_this_run": 0.76,
+  "best_submission_ref": 57498703,
+  "local_best": {
+    "config": "v2 recipe per-file balanced (fast-w3 proxy)",
+    "protocol": "LOSO-17-subject per-file",
+    "score": 0.6716,
+    "note": "run-3 x2 weight improves run-3 files 0.6647->0.6882, all-files 0.6716->0.6796"
+  },
+  "leaderboard": {
+    "captured": "2026-10-22T16:45:46Z",
+    "top": 0.91,
+    "our_rank": 21,
+    "our_score": 0.76,
+    "our_rank_note": "rank 21/37 with score 0.76 (v5); 37 teams",
+    "snapshot": ".kaggle-skill/leaderboard/low-cost-motor-imagery-decoding-for-rehab-cross-subject/20261022T164546Z.json"
+  },
+  "artifacts": {
+    "best_submission": "submissions/blend_v5_cpu.csv (v5, 0.76); v3 0.75 at submissions/nb_v3_out/submission.csv",
+    "notebooks": [
+      "lilac1996/motor-rehab-cross-subj-lr-cpu-v1 (kaggle_nb, scored 0.58)",
+      "lilac1996/motor-rehab-cross-subj-v2-diag (kaggle_nb_v2d, scored 0.62)",
+      "lilac1996/motor-rehab-cross-subj-v3-balanced-threshold (kaggle_nb_v3/v3f, scored 0.75, v2 adds test_probs dump)",
+      "lilac1996/motor-rehab-cross-subj-v4e-final (kaggle_nb_v4e, scored 0.73)",
+      "lilac1996/motor-rehab-cross-subj-dl-balanced (kaggle_nb_dl, waiting GPU; verified end-to-end locally incl. OOF+test_probs dumps)",
+      "kaggle_nb_blend (ML+DL blend, OOF weight search; built & syntax-validated, waiting GPU)",
+      "lilac1996/motor-rehab-cross-subj-blend-mldl (kaggle_nb_blend, upgraded to 2-seed 42/1337 x 3-arch + OOF blend search; awaiting GPU slot)"
+    ],
+    "code": "src/",
+    "probabilities": {
+      "v3 (best ML, 0.75)": "submissions/nb_v3f_out/test_probs.csv",
+      "v4e (run-3w, 0.73)": "submissions/nb_v4e_out/test_probs.csv",
+      "GPU DL seed42 (fixed T4 run)": "submissions/nb_dlgpu_out/test_probs.csv (P, P_eval, P_fb, P_ms, P_sc, P_attn)",
+      "CPU DL seed42": "submissions/nb_dlcpu_out/test_probs.csv (P, P_eval)"
+    }
+  },
+  "failures": [
+    "competition data download API 429; training data reused from run-03 cache; test data accessed via private Kaggle notebooks",
+    "kaggle submit upload host www.googleapis.com blocked by proxy; worked around via storage.googleapis.com URL rewrite",
+    "batch GPU (2) and CPU (5) concurrency limits shared with other account runs; retry loops in place",
+    "v4 v1/v2 notebook versions failed (csp feature/weight dim mismatch); fixed code pushed as v4b kernel",
+    "v4d pushes 409'd: metadata id not matching title-derived slug; fixed by consistent id (v4e-final) and DL slug fix; v3f first push silently no-op'd for same reason, fixed with matching id",
+    "GPU seed1337 first push failed on transient dataset-mount error (Training set dir missing); re-push pending API 429 throttle on SaveKernel"
+  ],
+  "human_intervention": 0
+}

@@ -1,0 +1,18 @@
+{
+ "title": "ts-trading-signal datafetch run17",
+ "code_file": "run.py",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_internet": false,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "internet": false,
+ "source": "competition",
+ "competition_sources": [
+  "tabular-time-series-trading-signal-classification"
+ ],
+ "dataset_sources": [],
+ "model_sources": [],
+ "id": "lilac1996/ts-trading-signal-datafetch-run17"
+}

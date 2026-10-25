@@ -1,0 +1,5 @@
+run,date_utc,config,local_score,public_score,submission_id,notes
+v1,2026-10-22,single-agent 31B; temp0.2 tp0.95 out6144 think4096; 7min/28calls/240s/80turns; prompt v1 (v5-based + 5k output-cut rule + note-taking),pending,pending,57504328,"2 earlier failed attempts (400: file must be named submission.zip); reconciled: no submissions existed before resubmit"
+v1t,2026-10-22,v1 + temperature 0.4 (community 129-task study: 0.4/1.0 tied best at 51 vs 48-50 at 0.2),pending,pending,,prepared (agent-t04)
+v2t,2026-10-22,v2 (problem re-injection) + temperature 0.4,pending,pending,,prepared (agent-v2-t04)
+v2,2026-10-23,v2 = v1 + {problem_description} re-injection; slot-2 auto-submit (A/B still queued on GPU pool),57542053,pending,2026-10-23T00:05Z submitted,sha256 8edee252 (submission_v2.zip); LB noise ±0.03-0.06

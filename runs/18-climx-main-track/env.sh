@@ -1,0 +1,12 @@
+export PATH=/mnt/disk3/liuyutong_home/miniconda3/envs/kaggle/bin:$PATH
+export HTTP_PROXY=http://172.28.4.16:18999
+export HTTPS_PROXY=http://172.28.4.16:18999
+export http_proxy=$HTTP_PROXY
+export https_proxy=$HTTPS_PROXY
+export FTP_PROXY=$HTTP_PROXY
+export ftp_proxy=$FTP_PROXY
+export NO_PROXY=localhost,127.0.0.1,::1,172.16.0.0/12,10.0.0.0/8,192.168.0.0/16,100.64.0.0/10
+export no_proxy=$NO_PROXY
+export HF_ENDPOINT=https://hf-mirror.com
+export KAGGLE_SKILL=/mnt/disk3/liuyutong_home/workspace/skill/skill 2>/dev/null || true
+KAGGLE_SKILL_DIR=/mnt/disk3/liuyutong_home/workspace/skill/score-push/skills/kaggle

@@ -1,0 +1,5 @@
+attempt,date,method,validation,local_score,public_score,submission_id,outcome
+v1,2026-10-21,seen=drifted June (0.9965*y5-0.174); new=LGBM 5x5 geo-CV (in-data feats+State/Metro/City),geo-CV new proxy + May->June seen proxy,new 12.49 / seen 1.20 / comp 10.40,10.460,57475576,submitted; matches local proxy
+v2,2026-10-21,seen=drifted June; new=LGBM 5x5 geo-CV + external medianHomeValue + owner-cost ratios,geo-CV new proxy,new 8.07 / seen 1.20 / comp 6.70,7.002,57477349,submitted; rank ~16
+v4,2026-10-21,"6-model ridge stack (LGBM x4, XGB x2) 3-seed",OOF stack blend 7.93,,32.418,57478294,BUG: 3-seed sum not divided by 3 (scale x3); superseded by v4b
+v4b,2026-10-21,"same as v4, fixed average",OOF stack blend 7.93,,6.980,57478451,best; rank 16/114 on public

@@ -1,0 +1,20 @@
+{
+  "id": "lilac1996/tfb-run-v5e",
+  "title": "tfb-run-v5e",
+  "code_file": "run_v5e.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "enable_internet": "false",
+  "machine_shape": "",
+  "dataset_sources": [
+    "anubisyy/trafficflowbench-086517-public-assets"
+  ],
+  "competition_sources": [
+    "2026-ieee-big-data-traffic-flow-bench"
+  ],
+  "kernel_sources": [],
+  "model_sources": []
+}

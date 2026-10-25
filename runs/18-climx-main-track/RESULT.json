@@ -1,0 +1,44 @@
+{
+  "competition": "climx-main-track",
+  "run_dir": "/mnt/disk3/liuyutong_home/workspace/skill/score-push/runs/18-climx-main-track",
+  "metric": "rnNSE (higher is better)",
+  "run_best": {
+    "score": -0.07306,
+    "submission_id": 57549354,
+    "submitted_utc": "2026-10-23T04:40Z",
+    "scored_utc": "2026-10-23T04:47Z",
+    "rank": 69,
+    "team_count": 102,
+    "artifact": "submissions/submission_fullres_v1_q2.parquet",
+    "model": "fullres linear v1: per-cell OLS, LBC-PCA basis (2015 anchor), no quadratics, no gate, 2-SSP {126,370}"
+  },
+  "account_history_best": {
+    "score_before_this_run": -0.44253,
+    "submission_id": 57536898,
+    "date": "2026-10-22T20:00Z",
+    "rank_before": 77,
+    "note": "V9 lite hybrid, previous run of the same account; this run supersedes it"
+  },
+  "leaderboard_evidence": [
+    {"time_utc": "2026-10-22T20:01Z", "rank": 77, "score": -0.44253, "file": ".kaggle-skill/leaderboard/climx-main-track/20261022T200122Z.json"},
+    {"time_utc": "2026-10-23T04:56Z", "rank": 69, "score": -0.07306, "leader": 0.12458, "file": ".kaggle-skill/leaderboard/climx-main-track/20261023T045646Z.json"}
+  ],
+  "cv_evidence": {
+    "temporal_out_of_time_2015-2057_to_2058-2100": {
+      "linear_nogate_noquad_2015anchor_2ssp": {"ssp126": -0.1036, "ssp370": -0.1444},
+      "+quadratics": {"ssp126": -0.6645, "ssp370": -0.8589},
+      "+gate_only_quad": {"ssp126": -0.3238, "ssp370": -0.4032},
+      "+aerosol(5+CF2CL2)": {"ssp126": -0.5993, "ssp370": -0.6220},
+      "shrink0.5": {"ssp126": -0.1092, "ssp370": -0.1501}
+    }
+  },
+  "submissions_this_run": [
+    {"id": 57549354, "time_utc": "2026-10-23T04:40Z", "score": -0.07306, "file": "submissions/submission_fullres_v1_q2.parquet", "desc": "fullres linear v1"}
+  ],
+  "infra_notes": [
+    "canonical ssp585 file was corrupt (sfcWind all, tas 2 slices); 8-part HF re-download + kaggle .part cross-check; capped proxy overserves range end on some connections (p2 mega-part, hist c0) -> prefix-snapshot install",
+    "GCS uploads via python-requests stall at 0 bytes through the proxy; kaggle CLI (no timeout) wedged; submit_direct.py curl PUT works (1.8MB/s)",
+    "worker pool = host GPUs 2/3 (jobs run on host CPU; sandbox CPU frozen); all heavy compute queued via tools/local_training.py"
+  ],
+  "final": false
+}

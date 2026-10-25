@@ -1,0 +1,45 @@
+{
+  "competition": "tabular-time-series-trading-signal-classification",
+  "competition_url": "https://www.kaggle.com/competitions/tabular-time-series-trading-signal-classification",
+  "status": "complete",
+  "completed_at": "2026-10-22T02:35:00Z",
+  "metric": "average_precision_score (higher is better)",
+  "submitted_by_this_run": [
+    {"id": "57505194", "file": "outputs/submission_causal_v1.csv", "status": "COMPLETE", "public_score": 0.28778, "note": "LGB/XGB rank blend, causal features"},
+    {"id": "57505444", "file": "outputs/submission_causal_v2.csv", "status": "ERROR", "public_score": null, "note": "rejected: values not in [0,1]; fixed in 57505474"},
+    {"id": "57505474", "file": "outputs/submission_causal_v2b.csv", "status": "COMPLETE", "public_score": 0.36833, "note": "BEST: deterministic leak-free rule (exact left-gate + rank by drop depth)"},
+    {"id": "57505569", "file": "outputs/submission_causal_v3.csv", "status": "COMPLETE", "public_score": 0.36833, "note": "v2b + PROM-boundary fuzz band; identical score (fuzz rows all negative)"},
+    {"id": "57505803", "file": "outputs/submission_causal_v4.csv", "status": "COMPLETE", "public_score": 0.35012, "note": "shallow-flush bonus; worse, not used"}
+  ],
+  "best_score_this_run": 0.36833,
+  "best_submission_id": "57505474",
+  "best_submission_file": "outputs/submission_causal_v2b.csv",
+  "local_best": {"protocol": "10-fold expanding-window time-series CV on last 60% of train", "score": 0.3488, "stable_range": "0.326-0.349 across 5 window configs"},
+  "best_artifacts": {
+    "submission": "outputs/submission_causal_v2b.csv",
+    "generation_code": "code/final2.py",
+    "analysis_code": ["code/analyze2.py", "code/analyze3.py", "code/decomp.py"],
+    "cv_code": ["code/cv2.py", "code/cv6.py", "code/cv8.py", "code/cv9.py", "code/cv11.py", "code/interact.py", "code/interact2.py"],
+    "notes": ["notes/strategy.md", "notes/final_state.md", "experiments.csv"]
+  },
+  "method_summary": "Reverse-engineered the label rule exactly (6131/6132 train match): Signal = 1[left-rise >= 0.00995] AND 1[right-rise >= 0.00995] in ln price (find_peaks(-log p, prominence=0.00995)). Left-rise is fully causal; right-rise depends on future prices (unpredictable part). Final score ranks gate rows by left-drop depth (P(right|depth) monotone on train), all leak-free (data <= t only, LR computed on concatenated train+test series).",
+  "leaderboard_evidence": {
+    "public_rank": 18,
+    "teams": 40,
+    "score": 0.36833,
+    "snapshot_time": "2026-10-22T02:21:51Z",
+    "snapshot_file": ".kaggle-skill/leaderboard/tabular-time-series-trading-signal-classification/20261022T022151Z.json",
+    "context": "Ranks 1-10 (0.990-1.000) are lookahead solutions (future test prices) targeted by the host's post-close code audit (rules 2.8b). Best leak-free/causal cluster: 0.28-0.38 (ranks 17-41). Run 18 is #2 in the causal cluster, behind one 0.38196 entry dated 2026-10-14 (possibly scored on a pre-latest-evaluation-adjustment label version)."
+  },
+  "account_rank": {"rank": 18, "note": "account had no earlier submissions in this competition; account best == this run's best 0.36833"},
+  "score_based_rank_interval": "score 0.36833 sits between LB entries 0.38196 (rank 17, 2026-10-14) and 0.36217 (rank 18->19 region); current public position 18/40",
+  "elapsed": {"started_at": "2026-10-22T01:02:33Z", "finished_at": "2026-10-22T02:35:00Z", "duration_hours": 1.54},
+  "training_host": "CPU only (pandas/sklearn/lightgbm/xgboost in shared kaggle conda env); dataset ~8760 hourly rows, no GPU needed",
+  "failures": [
+    "api.kaggle.com data-download + kernels.push endpoints returned 429 for ~20 min; bypassed via MCP download_competition_data_file signed URLs (all 5 files, sizes verified against file listing)",
+    "submission 57505444 rejected (probabilities must be in [0,1]); rescaled and resubmitted as 57505474",
+    "shallow-flush bonus (v4) and model-residual blends improved CV marginally but hurt public score; discarded"
+  ],
+  "human_intervention": "none",
+  "prize_note": "Prize requires Private LB > 0.6 AP AND passing the leak-free code audit. Community and host evidence indicate 0.6 is unreachable for strictly leak-free models (~1h of lookahead is worth ~0.3 AP); top public scores rely on lookahead and face post-audit disqualification. This run maximized the leak-free score instead."
+}

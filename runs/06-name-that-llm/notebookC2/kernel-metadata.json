@@ -1,0 +1,14 @@
+{
+ "id": "lilac1996/ntl-run06-v3-cpu",
+ "title": "ntl-run06-v3-cpu",
+ "code_file": "ntl_run06_v3_cpu.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "enable_internet": false,
+ "dataset_sources": [
+  "lilac1996/ntl-run06-svc5b"
+ ]
+}

@@ -1,0 +1,133 @@
+{
+  "purpose": "Six autonomous Kaggle runs for competitive baseline scores; iterative validation, history reuse and multiple useful submissions allowed",
+  "status": "paused_by_user",
+  "account_mode_for_new_runs": "standard; do not change existing protected runs",
+  "reuse_history": true,
+  "leaderboard_feedback": "May inform decisions; prioritize reliable local validation and avoid blind leaderboard probing",
+  "human_intervention_during_runs": false,
+  "start_authorized_now": true,
+  "platform_skill": "skills/kaggle",
+  "resource_limits": {
+    "wall_time_seconds": null,
+    "model_cost_usd": null,
+    "note": "No additional hard budget requested. Reuse shared environments; inspect available resources, avoid interfering with other jobs and finish after useful improvement stalls."
+  },
+  "submission_limit_per_run": null,
+  "submission_limit_note": "No additional per-run cap; obey live official quota, verify outcomes and reconcile uncertain writes before submitting again",
+  "tasks": [
+    {
+      "order": 1,
+      "competition": "predicting-housing-affordability-in-the-u-s",
+      "title": "Predicting Housing Affordability in the U.S.",
+      "url": "https://www.kaggle.com/competitions/predicting-housing-affordability-in-the-u-s",
+      "official_data_bytes_snapshot": 3057561,
+      "submission_type": "file",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2026-11-10T09:00:00+08:00",
+      "notes": "User explicitly selected this task; prize is gift card/swag rather than cash.",
+      "batch": 1
+    },
+    {
+      "order": 2,
+      "competition": "soil-grain-size-from-photos",
+      "title": "Predicting Soil Grain Size Distributions from Images",
+      "url": "https://www.kaggle.com/competitions/soil-grain-size-from-photos",
+      "official_data_bytes_snapshot": 395376331,
+      "submission_type": "file",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2026-11-30T19:00:00+08:00",
+      "notes": "Small number of distinct training soils; multiple photos of one sample must stay together in validation.",
+      "batch": 1
+    },
+    {
+      "order": 3,
+      "competition": "low-cost-motor-imagery-decoding-for-rehab",
+      "title": "Low Cost Motor Imagery Decoding for Rehab (Single Subject)",
+      "url": "https://www.kaggle.com/competitions/low-cost-motor-imagery-decoding-for-rehab",
+      "official_data_bytes_snapshot": 626354491,
+      "submission_type": "file",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2027-02-19T08:00:00+08:00",
+      "notes": "Official task trains per participant separately; check ML/DL track rules.",
+      "batch": 1
+    },
+    {
+      "order": 4,
+      "competition": "low-cost-motor-imagery-decoding-for-rehab-cross-subject",
+      "title": "Low Cost Motor Imagery Decoding for Rehab (Cross Subject)",
+      "url": "https://www.kaggle.com/competitions/low-cost-motor-imagery-decoding-for-rehab-cross-subject",
+      "official_data_bytes_snapshot": 568722202,
+      "submission_type": "file",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2027-02-19T08:00:00+08:00",
+      "notes": "May reuse Single Subject feature/model code, but fit and validate for the cross-subject task; not an independent task family.",
+      "batch": 2
+    },
+    {
+      "order": 5,
+      "competition": "misconception-detection-in-k-12-student-math-workings",
+      "title": "Misconception Detection in K-12 Student Math Workings",
+      "url": "https://www.kaggle.com/competitions/misconception-detection-in-k-12-student-math-workings",
+      "official_data_bytes_snapshot": 5169141549,
+      "submission_type": "file",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2026-11-17T08:00:00+08:00",
+      "notes": "Official brief says photos of handwritten maths: inspect actual inputs; do not assume ready-made text.",
+      "batch": 2
+    },
+    {
+      "order": 6,
+      "competition": "name-that-llm",
+      "title": "Name That LLM",
+      "url": "https://www.kaggle.com/competitions/name-that-llm",
+      "official_data_bytes_snapshot": 2142535,
+      "submission_type": "notebook/code",
+      "official_max_daily_submissions_snapshot": 5,
+      "deadline_asia_shanghai_snapshot": "2027-01-15T07:59:00.817000+08:00",
+      "notes": "Notebook/code submission. Previous B02 creation result remains unknown; safely inspect permitted account history before any new formal submission; do not bypass the old ledger lock.",
+      "batch": 1
+    }
+  ],
+  "runtime": "Existing Codex CLI using qwen3.8-27b-fp8 on GPUs 4,5,6,7; standard account mode and native workspace permissions",
+  "evidence": "Git for code, configuration, compact experiment/result records; original agent sessions retained locally outside Git",
+  "private_remote": null,
+  "submission_gate": {
+    "mode": "offline_first",
+    "rule": "Establish an initial valid scored submission, then improve and submit when evidence justifies it; no mandatory numerical improvement threshold."
+  },
+  "model": "qwen3.8-27b-fp8",
+  "model_ports": [
+    12804,
+    12805,
+    12806,
+    12807
+  ],
+  "smoke_run": "runs/00-titanic-smoke-v2",
+  "skill_commit": "71431ca",
+  "preflight_evidence": ".local/smoke-verified.json",
+  "max_concurrent_runs": 12,
+  "routes": null,
+  "scheduler_pid": 1527031,
+  "inference_gpu_by_task": {
+    "5": 7,
+    "3": 6,
+    "6": 5,
+    "4": 4,
+    "7": 5,
+    "9": 7,
+    "11": 6,
+    "12": 4,
+    "13": 4,
+    "14": 5,
+    "15": 6,
+    "16": 7,
+    "17": 6,
+    "18": 6,
+    "20": 7
+  },
+  "scheduling": "available_qwen_endpoints",
+  "tasks_per_endpoint": 3,
+  "enabled": false,
+  "paused_at": "2026-10-23T13:59:03.243530+08:00",
+  "pause_checkpoint": "/mnt/disk3/liuyutong_home/workspace/skill/score-push/checkpoints/20261023-pause-all"
+}

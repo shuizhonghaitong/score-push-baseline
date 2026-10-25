@@ -1,0 +1,1 @@
+使用 $kaggle 自主完成 enveda-CASMI26-molecule-id-mass-spectra，尽量取得好成绩。可多次试验、改进和提交，全程无需人工干预，结束后报告本次最佳分数、排名和提交情况。

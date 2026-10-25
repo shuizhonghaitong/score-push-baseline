@@ -1,0 +1,21 @@
+{
+  "id": "lilac1996/ntl-run06-featA",
+  "title": "ntl-run06-featA",
+  "code_file": "ntl_run06_featA.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "ahmedberatozer/ntl-pool-v4",
+    "prvsiyan/prvsiyans-extended-name-that-llm-dataset"
+  ],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "kernel_sources": [],
+  "model_sources": []
+}

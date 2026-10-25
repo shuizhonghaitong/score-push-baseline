@@ -1,0 +1,11 @@
+{
+  "language": "python",
+  "kernelspec": {"name": "python3"},
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "title": "Misconception Detection Probe Api",
+  "code_file": "main.py",
+  "id": "lilac1996/misconception-detection-probe-api",
+  "kernel_type": "script"
+}

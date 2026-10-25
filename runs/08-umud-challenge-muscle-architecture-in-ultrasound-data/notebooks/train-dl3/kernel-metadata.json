@@ -1,0 +1,13 @@
+{
+  "id": "lilac1996/umud-dl-train3-private",
+  "title": "UMUD DL Train3 Private",
+  "code_file": "train_dl.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaT4",
+  "competition_sources": ["umud-challenge-muscle-architecture-in-ultrasound-data"]
+}

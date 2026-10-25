@@ -1,0 +1,4 @@
+# Preserve historical source byte identity, including original line endings.
+* -text
+*.npy binary
+*.npz binary

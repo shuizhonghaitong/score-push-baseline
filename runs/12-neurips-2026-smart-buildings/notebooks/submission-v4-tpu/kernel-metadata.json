@@ -1,0 +1,16 @@
+{
+ "id": "lilac1996/smart-buildings-v4tpu",
+ "title": "Smart Buildings V4tpu",
+ "code_file": "main.py",
+ "language": "python",
+ "kernel_type": "script",
+ "is_private": true,
+ "enable_internet": false,
+ "enable_gpu": false,
+ "enable_tpu": true,
+ "competition_sources": [
+  "neurips-2026-smart-buildings"
+ ],
+ "dataset_sources": [],
+ "model_sources": []
+}

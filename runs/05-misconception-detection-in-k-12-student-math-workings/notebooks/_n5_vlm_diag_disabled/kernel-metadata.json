@@ -1,0 +1,12 @@
+{
+  "language": "python",
+  "kernelspec": {"name": "python3"},
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "competition_sources": ["misconception-detection-in-k-12-student-math-workings"],
+  "title": "Misconception Detection VLM Diagnosis V1",
+  "code_file": "main.py",
+  "id": "lilac1996/misconception-detection-vlm-diagnosis-v1",
+  "kernel_type": "script"
+}

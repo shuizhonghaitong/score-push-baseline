@@ -1,0 +1,46 @@
+{
+ "competition": "filament-segmentation-2026",
+ "run": "09-filament-segmentation-2026 (autonomous score-push run 2026-10-21/26)",
+ "metric": "panoptic_quality (higher is better)",
+ "best_this_run": {
+  "score": null,
+  "submission_id": null,
+  "method": null,
+  "submitted_at_utc": null,
+  "rank": null,
+  "rank_evidence": null
+ },
+ "account_historical_note": "account historical best/rank tracked separately; unverified values stay null",
+ "submissions": [],
+ "leaderboard_context": {
+  "teams": 1122,
+  "top_public_score_at_run_start": 0.69,
+  "evidence": "report/lb_evidence_2026-10-22.json"
+ },
+ "qualitative_30pct": {
+  "status": "BLOCKED (unattended): no GitHub/GitLab/Bitbucket credentials in environment; Google Form + Overleaf unreachable",
+  "prepared_artifacts": [
+   "repo/README.md",
+   "repo/pipeline.ipynb",
+   "repo/requirements.txt",
+   "report/report_draft.md",
+   "report/REPORT_OUTLINE.md",
+   "report/eda_stats.json"
+  ]
+ },
+ "pipeline_summary": {
+  "v1_gpu": "U-Net resnet34 (thr x per-instance-conf grid, 4-flip TTA) + Mask R-CNN resnet50-fpn-v2 (score-thr sweep, small anchors) + overlapping-instance merge; official-PQ grouped 80/20 validation; progressive submissions",
+  "v1_cpu": "U-Net 512/bs2/workers0/threads2/10ep (Kaggle CPU memory limit ~8GB)",
+  "v2": "256px native-resolution CropUNet refiner on detector groups, 4-flip TTA with topology guards, detector-seed Voronoi splitting; 5 candidates",
+  "postprocess": "offline rule sweep (union/union_nosmall/best_iou) on val RLE dumps -> tuned submission"
+ },
+ "blockers_timeline": [
+  "2026-10-22 05:05Z+ : account-level 429 on SaveKernel (shared account, other concurrent runs); Retry-After countdown observed",
+  "2026-10-22 : DownloadDataFiles 429 (Retry-After ~59h -> 2026-10-24 22:01 UTC at 10-22 10:32 UTC probe)",
+  "2026-10-22 : GPU weekly budget 35.2/30h exhausted -> reset 2026-10-24 00:00 UTC",
+  "2026-10-21 : CPU kernel v6-v9 OOM-killed (bs8/1024 and DataLoader workers); fixed in v10 (bs2/512/workers0)"
+ ],
+ "data_rules": "esairlab MAGFiLO 1.0 GT is EDA-only (competition rule: no other GT for training); training only on official competition annotations",
+ "finished_at_utc": null,
+ "notes": []
+}

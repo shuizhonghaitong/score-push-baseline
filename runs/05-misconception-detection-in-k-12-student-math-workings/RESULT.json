@@ -1,0 +1,47 @@
+{
+  "competition": "misconception-detection-in-k-12-student-math-workings",
+  "run_dir": "/mnt/disk3/liuyutong_home/workspace/skill/score-push/runs/05-misconception-detection-in-k-12-student-math-workings",
+  "status": "in-progress",
+  "as_of": "2026-10-23T00:53:25Z",
+  "this_run_best_public": 0.50849,
+  "this_run_best_submission": {
+    "ref": 57524872, "v": "v4b", "date": "2026-10-22", "score": 0.50849,
+    "recipe": "prob prior (q-dist; 0.8*topic+0.2*global fallback) + 0.3*knn96b5 (CLIP ViT-B/32 kNN k=96 same-question-bonus5, normalized) + VLM answer-bit (dy=1.5 on 'yes', dn=0.2 on 'no') -> NONE boost"
+  },
+  "this_run_rank": {
+    "rank": 204, "teams": 224, "as_of": "2026-10-23T00:53:25Z",
+    "evidence": ".kaggle-skill/leaderboard/misconception-detection-in-k-12-student-math-workings/20261023T005325Z.json",
+    "note": "rank number drifted 202->204 as 2 new teams joined (222->224) since 10-22; my score unchanged at 0.50849."
+  },
+  "account_historical_best_public": 0.50849,
+  "account_historical_rank": {"rank": 204, "teams": 224, "as_of": "2026-10-23T00:53:25Z"},
+  "account_history_note": "Pre-first-submission snapshot 20261021T102200Z.json shows NO lilac1996 row on this competition, so this run is the account's only participation here; account best == this-run best (0.50849). Verified.",
+  "leader": {"name": "cuda graph compile error", "score": 0.83300, "as_of": "2026-10-23T00:53:25Z"},
+  "gap_to_leader": 0.32451,
+  "submissions_this_run": [
+    {"ref": 57483462, "v": "v1",  "score": 0.42683},
+    {"ref": 57487186, "v": "v2",  "score": 0.45883},
+    {"ref": 57491407, "v": "v3",  "score": 0.49983},
+    {"ref": 57491606, "v": "v3b", "score": 0.50599},
+    {"ref": 57524757, "v": "v4a", "score": 0.50283},
+    {"ref": 57524872, "v": "v4b", "score": 0.50849},
+    {"ref": 57524945, "v": "v4c", "score": 0.50583},
+    {"ref": 57525029, "v": "v4d", "score": 0.50666},
+    {"ref": 57525197, "v": "v4e", "score": 0.50833}
+  ],
+  "slots_today": {"date": "2026-10-23", "used": 0, "left": 5, "note": "submission quota resets 08:00 CST; held (nothing local beats v4b)."},
+  "gpu_quota": {"used_h": 42.5, "allowed_h": 30.0, "resets": "2026-10-24T00:00:00Z (2026-10-24 08:00 CST)"},
+  "pending": [
+    "n7 Qwen2.5-VL-3B-Instruct LoRA (r=16, lr=1e-4, 448px, 1 epoch, 8h budget) at notebooks/n7-push/main.py. BLOCKED by Kaggle SaveKernel 429 (active ~since 2026-10-22 20:21 CST, still 429 as of 2026-10-23 08:51 CST; the 08:00-CST daily-reset hypothesis was FALSIFIED). Redundant persistent pushers (old v4 + this run's v5, 30-min cadence, 72h budget) auto-push the moment SaveKernel unblocks; n7 then queues PENDING on the exhausted GPU quota and trains 2026-10-24 08:00 CST."
+  ],
+  "de_risking_this_takeover": [
+    "FIXED a fatal bug in both n7 448px & 384px main.py: map3() was called before it was defined AND the final block crashed if train inference was skipped (res_tr is None) -- both BEFORE vlm_diag_test.csv was saved/uploaded, which would have wasted the entire 10-12h GPU run. Fix: define map3 first; save+upload the TEST diag EARLY (before train inference) so the critical v6 input is preserved even on OOM/12h-cap. Backups: notebooks/n7-push/main_map3bug.bak, notebooks/n7-push-384/main_map3bug.bak.",
+    "Verified n7 image path + columns match the SUCCESSFUL n1/n3a notebooks; verified v6 builders (build_v6_lora.py pure+blend) emit valid 3498-row 3-code submissions; verified n8 (transductive kNN) is bug-free.",
+    "Confirmed local recipe is at ceiling: clean qsplit, prior+0.3*clip-knn+bit = 0.4551 (reproduces v4b); adding DINOv2 kNN (k=96,bonus5) or clip+dino combo is <= base -> no local gain. Held 2026-10-23 slots."
+  ],
+  "next_actions_when_reinvoked": [
+    "When n7 completes (watch logs/supervisor.log for 'N7 COMPLETE + FETCHED' / outputs/ds_lora/vlm_diag_test.csv): check in-sample 'LoRA train MAP@3' (must be >> 0.29 or the LoRA is useless). Auto followup (scripts/n7_followup.sh) builds+submits v6a (pure LoRA top3) and v6b (v4b recipe + 0.4*diag).",
+    "Then tune w_diag on the PUBLIC leaderboard (train is leaky): grid w_diag ~0.2/0.4/0.8/1.2 via scripts/build_v6_lora.py --mode blend, keeping dy=1.5/dn=0.2/wk=0.3, using the 2026-10-24/25 slots.",
+    "If n7 weak (train MAP@3 ~0.29) or OOM'd to 384px-and-still-bad, skip it; consider blending outputs/ds_kntrans/knn_trans_probs.npz (n8) if it completes."
+  ]
+}

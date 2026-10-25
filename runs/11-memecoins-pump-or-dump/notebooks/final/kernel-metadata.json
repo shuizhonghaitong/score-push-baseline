@@ -1,0 +1,13 @@
+{
+  "id": "lilac1996/pump-or-dump-final",
+  "title": "Pump or Dump: EV-optimal take-profit pipeline",
+  "code_file": "solution.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_internet": false,
+  "is_interactive": false,
+  "run_quietly": false,
+  "auto_recreate": false,
+  "competition_sources": ["memecoins-pump-or-dump"]
+}

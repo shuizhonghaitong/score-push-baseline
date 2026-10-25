@@ -1,0 +1,97 @@
+{
+ "competition": "the-3lc-low-light-detection-challenge",
+ "account": "lilac1996",
+ "status": "completed",
+ "started_at": "2026-10-22T00:49+08:00",
+ "finished_at": "2026-10-22T06:55+08:00",
+ "elapsed_hours": 6.1,
+ "submissions_this_run": [
+  {
+   "ref": 57492932,
+   "file": "outputs/baseline10/submission.csv",
+   "sha256": "a7d5536001368b95556ba480d4edc3280882b5f4f057bf4cb12e2c9b799bd668",
+   "message": "baseline10: YOLO11n COCO-init, 10ep, 640px, no label edits (inference conf 0.25)",
+   "public_score": 0.48865,
+   "time": "2026-10-21T18:10Z"
+  },
+  {
+   "ref": 57495546,
+   "file": "outputs/tuned200/submission.csv",
+   "sha256": "dee219f5674880c74e6672d2ecd5c80283ca99c0b091ac200f914660f1ff1ed4",
+   "message": "tuned200: YOLO11n COCO-init 200ep cos-lr; conf=0.001 (val mirror mAP50 0.6641)",
+   "public_score": 0.59039,
+   "time": "2026-10-22T03:52Z"
+  }
+ ],
+ "unused_slots_today": 1,
+ "best_public_score_this_run": 0.59039,
+ "best_public_ref": 57495546,
+ "account_best_public": 0.59039,
+ "account_rank": "49/89 teams (2026-10-22T06:50+08:00, state/final_status_*.txt)",
+ "leader_public": 0.84107,
+ "best_local_validation": {
+  "artifact": "models/runs/tuned200/weights/best.pt",
+  "inference": "imgsz 640, conf 0.001, max_det 300 (scorer caps maxDets=100)",
+  "val_mirror_map50_maxdets100": 0.6641,
+  "ultralytics_val_map50": 0.686,
+  "val_protocol": "organizer-revised val (733 imgs, 2725 boxes), COCO mAP@0.5 mirror (code/eval_coco.py)"
+ },
+ "rank_evidence": [
+  {
+   "time": "2026-10-22T03:53+08:00",
+   "rank": "80/89",
+   "score": 0.48865,
+   "source": "competition_status"
+  },
+  {
+   "time": "2026-10-22T04:30+08:00",
+   "rank": "49/89",
+   "score": 0.59039,
+   "source": "state/leaderboard_20261022T0430Z.txt"
+  },
+  {
+   "time": "2026-10-22T06:50+08:00",
+   "rank": "49/89",
+   "score": 0.59039,
+   "source": "state/final_status_20261022T*.txt"
+  }
+ ],
+ "key_findings": [
+  "Confidence threshold was the dominant lever: val mirror mAP50 (maxDets=100) rises monotonically as conf drops 0.25->0.001 (0.5639->0.6641 baseline10); the model under-predicts vs the revised-labels ground truth. Public gap val->public was -0.075 in two independent submissions.",
+  "Epochs barely matter: 10ep baseline (0.6827 ultralytics val) ~= 200ep tuned200 (0.686): all 12 classes exist in COCO pretraining, so the ceiling is set by train label quality.",
+  "Train labels are under-annotated vs the rulebook (train 3.21 boxes/img vs revised val 3.72). Dual-model consensus (baseline10 x tuned200, both conf>=0.5, agree IoU>=0.3, both unmatched) yielded 125 boxes in 121 images; visual sample review (24/24 real objects) confirms quality.",
+  "A full 200-epoch retrain on the +125-box labels (v2full200) scored 0.6614 on the val mirror vs 0.6641 for the original-label model: net-neutral (Boat/People improved, Chair/Cup/Table/Dog regressed); not submitted. Fine-tuning a converged model costs ~0.014 mAP50 (A/B at lr0=0.002)."
+ ],
+ "failures_and_reconciliations": [
+  "2026-10-21T17:57Z & 18:00Z: two skill-wrapper submission attempts failed at GCS upload (www.googleapis.com unreachable on this network); reconciled via account status (0 submissions registered, no slot consumed); fixed with code/submit_direct.py (host rewrite to storage.googleapis.com). Both runs' receipts and reconciliations are in .kaggle-skill/ledger.jsonl.",
+  "eval_coco.py bug: det boxes were passed as xyxy instead of COCO xywh (and empty per-class det lists crashed loadRes); fixed 2026-10-22T02:55+08:00 and validated against the 50-image subset.",
+  "kit_v2 data-layout bug: ultralytics derives label paths from real image paths, so symlinked images silently used the original labels; invalidated v2ft120 and the 'A/B' pair, fixed with real (copied) image dirs, re-ran as v2full200."
+ ],
+ "compliance_notes": [
+  "Locked contract respected throughout: YOLOv11n only, official COCO-pretrained yolo11n.pt (sha256 0ebbc80d...44ee1) as init, imgsz 640, single model; no TTA, ensembling, pseudo-labeling, or external data/images.",
+  "Label editing: 125 train boxes added from predictions of two runs trained by this account under the locked contract (allowed source per rules); the rules prefer individually human-reviewed edits, but this run is unattended - the additions were agent-applied under a strict dual-model consensus filter (both models conf>=0.5, IoU>=0.3, both unmatched to GT) and visually spot-checked (24/24 real objects). Disclosed per AGENTS.md.",
+  "Test split: images used for inference only; no test labels obtained or used; no leaked-label attempts.",
+  "Training compute: local GPU pool (A100-80GB, host GPUs 2/3) via tools/local_training.py; no remote compute used."
+ ],
+ "artifacts": {
+  "best_model": "models/runs/tuned200/weights/best.pt",
+  "best_submission": "outputs/tuned200/submission.csv",
+  "runner_up_models": [
+   "models/runs/baseline10/weights/best.pt",
+   "models/runs/v2full200/weights/best.pt (v2 labels, not better on val)"
+  ],
+  "label_experiment": [
+   "data/kit_v2 (train labels +125 consensus boxes)",
+   "outputs/audits/agreed_additions.json (the 127 accepted candidates; 125 applied)"
+  ],
+  "eval_tooling": [
+   "code/eval_coco.py (metric mirror)",
+   "code/conf_sweep.py",
+   "code/audit_labels.py",
+   "code/cross_agree.py"
+  ],
+  "experiments": "experiments.csv",
+  "ledger": ".kaggle-skill/ledger.jsonl"
+ },
+ "stopping_rationale": "Public 0.59039 (rank 49/89) is the best of 3 evaluated artifacts (mirror 0.6641/0.6614/0.6642); the model is data-ceilinged (~0.69 ultralytics val regardless of epochs/labels-tried). Further gains require large-scale rulebook re-annotation of the 5910 train images (thousands of boxes), which is not achievable within this run's constraints. One quota slot left unused today by design; quota resets 2026-10-24."
+}

@@ -1,0 +1,31 @@
+attempt,date,config,protocol,score,notes
+1,2026-10-21,v1(76feat) LR C=1.0,LOSO-17subj,0.6289,baseline band-power features
+2,2026-10-21,v1 XGB,LOSO,0.6071,
+3,2026-10-21,v1 LGBM,LOSO,0.5919,
+4,2026-10-21,v2(643feat) LR,LOSO,0.5824,fine bins+subwindows overfit cross-subj
+5,2026-10-21,v2 SVM,LOSO,0.5926,
+6,2026-10-21,CSP(8filt) LR,LOSO,0.5290,weaker
+7,2026-10-21,v2+CSP LR/XGB/LGBM,LOSO,0.55-0.58,
+8,2026-10-21,v1 LR C sweep,LOSO,0.6294 best C=1.0,C in .01-10
+9,2026-10-21,feature subsets (erd/rel/dyn),LOSO,0.58-0.62,full v1 set best
+10,2026-10-21,preproc filemean/filez,LOSO,0.6306/0.5982,filez hurts
+11,2026-10-21,LR(C=.1,.3,1) prob ensemble,LOSO,0.6313,best local so far
+12,2026-10-21,PUBLIC v1: LR-ens(C=.1,.3,1) v1 bandpower feats (nb CPU),public,0.58,sub 57484458; local LOSO 0.629
+13,2026-10-21,PUBLIC v2: mixed ens w3(BP+FBRTS+CSP: lr0.1,lr1,lda)+v1(lr0.1,lr1) 0.5/0.5 (nb CPU),public,0.62,sub 57485588; local LOSO 0.651/remote CV 0.653
+14,2026-10-21,LOSO w3 BP+FBRTS+CSP lr_0.1,LOSO run3-file not yet,0.6453,best local single model
+15,2026-10-21,LOSO mixed w3+v1 6-model,LOSO,0.6490,
+16,2026-10-21,PUBLIC v3: v2 recipe + per-file balanced threshold k=n//2 (nb CPU),public,0.75,sub 57488164; +0.13 over v2
+17,2026-10-21,MDM lr + FBCSP(6band) + combos,LOSO trial-level,0.585-0.592,all below v2 recipe 0.65; dropped
+18,2026-10-21,run-3 upweight study (fast w3, per-file bal),LOSO,w=1:0.6716 w=2:0.6796 w=4:0.6788; w=2 best (run3-files 0.6647->0.6882)
+19,2026-10-21,Kaggle study kernel (12-model/adapt study) deleted at ~55min: too slow on shared CPU, blocked v4b slot; conclusions: not needed (w3+v2 recipe + balanced + run3w already established),aborted,see studywait.log
+20,2026-10-22,Diag: v4 push 409s caused by metadata id/slug mismatch (title-derived slug canonical); consistent id+title pushes succeed; v4-run3-weighted 00:19 run errored on old CV-version shape bug (bp 1355 vs csp 1485 after run-3 dup); current v4d (no CV) verified OK locally,n/a,n/a,v4e-final pushed 02:1x under new consistent slug
+21,2026-10-22,Local smoke v4d (1795 train trials, run-3 x2): 328d feats, models train, fake-test balanced 25/25, test_probs.csv dump added,n/a,n/a,missing sklearn imports in v4d fixed
+22,2026-10-22,PUBLIC v4(v4e): v2 recipe + run-3 x2 weight + balanced,public,0.73,sub 57492945; BELOW v3 0.75 -> run-3 weighting hurts on public; best remains v3
+23,2026-10-22,CPU DL fallback (3 CNNs x16ep no CV, seed42): test P corr 0.18 vs ML v3, rank-corr 0.14-0.65/file, 126/360 flips vs v3; S013/S015 file-bias inverted vs ML -> unvalidated diversity, not submitted,nb run motor-rehab-cross-subj-dl-cpu,corr 0.18,probs saved submissions/nb_dlcpu_out/test_probs.csv
+24,2026-10-22,Offline analysis: v3 vs v4e test P corr 0.996 (18 flips) -> ML variants saturated; DL is the only real diversity source,n/a,n/a,
+25,2026-10-22,OOF blend search (per-file balanced): ML 0.702 / DL-sc 0.7108 / best 0.45*ML+0.55*DL-sc 0.7404 (plateau w_ml 0.4-0.6),n/a,n/a,
+26,2026-10-22,PUBLIC v5: offline blend 0.45*ML(v3) + 0.55*DL(CPU 3-CNN ens) OOF-tuned + balanced,public,0.76,sub 57498703; NEW BEST (was 0.75 v3); DL signal confirmed
+27,2026-10-22,GPU DL seed42 fixed run complete (6 min healthy T4): CV eval-mode bal 0.7089, FB_WINNER=False, OOF meanP 0.4861; OOF blend vs ML: best 0.7372 w_ml 0.40 sc (mean 0.7356 @0.45-0.5),nb_dlgpu_out,
+28,2026-10-22,PUBLIC v6: 0.40*ML(v3)+0.60*GPU-DL-sc OOF-tuned balanced,public,0.75,sub 57506049; BELOW v5 0.76 (CPU-P 0.45/0.55); GPU-sc@0.40 slightly worse on public than OOF suggested
+29,2026-10-22,Analysis: CPU-DL vs GPU-DL test P corr 0.993 (same seed/arch, numeric noise only) -> 3-way CPU+GPU+ML blend adds nothing; 2nd SEED is the diversity source,n/a,n/a,
+30,2026-10-22,GPU seed1337 kernel first attempt failed (transient dataset mount error, dir missing); re-push loop running (src/loop_gpu2.sh); CPU dlcpu2/dlcpu3 sequential loop running (src/loop_cpu.sh),n/a,n/a,

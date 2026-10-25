@@ -1,0 +1,8 @@
+attempt,date,method,validation,local_score,public_score,submission_ref,notes
+v1,2026-10-21,question-prior(rank) + 0.5*CLIP-kNN (alpha LOO-tuned),LOO prior+kNN 0.703 (over-optimistic); full-prior CV 0.744,0.703,0.42683,57483462,rank 203/212; test questions mostly 0-2 train rows -> prior weaker than LOO suggests
+v2,2026-10-21,prob prior (q-dist; 0.8*topic+0.2*global fallback) + 0.2*kNN(norm),"B qsplit: prior 0.4449, +0.2*knn 0.4490",0.4490,0.45883,57487186,better prior: prob dist + topic/global fallback beats rank prior
+v3,2026-10-22,prob prior + 0.2*knn16 + VLM answer bit (dy=0.4/dn=0.2),"train LOO: base 0.4638, +bit 0.4683",0.4683,0.49983,57491407,VLM yes=41% NONE / no=11% NONE; 61% test rows unknown (uninformative)
+v3b,2026-10-22,v3 + strong yes-bit (dy=1.5),train LOO: 0.4927 (plateau dy>=1.5),0.4927,0.50599,57491606,yes => NONE top-1 rule; plateau on train
+v4a,2026-10-22,"prior + 0.5*knn96b5(k=96,sameq-bonus5,norm) + soft bit (dy=0.8/dn=0.5)",clean qsplit: 0.4596 (vs v3b 0.4566),0.4596,0.50283,57524757,public slightly below v3b; compound change (knn+wk+bit) - isolate with v4b
+v4b,2026-10-22,prior + 0.3*knn96b5 + v3b bit (dy=1.5/dn=0.2),clean qsplit: ~0.4565 est,,0.50849,57524872,"NEW BEST; knn96b5@0.3 (k=96,sameq-bonus5) beats knn16@0.2; rank 202/222"
+v4d,2026-10-22,prior + 0.5*knn96b5 + v3b bit (dy=1.5/dn=0.2),clean qsplit 0.4562,,0.50666,57525029,wk=0.5 below v4b -> kNN peak at wk~0.3

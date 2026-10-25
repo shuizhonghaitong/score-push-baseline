@@ -1,0 +1,31 @@
+{
+  "competition": "2026-ieee-big-data-traffic-flow-bench",
+  "run_dir": "/mnt/disk3/liuyutong_home/workspace/skill/score-push/runs/07-2026-ieee-big-data-traffic-flow-bench",
+  "status": "IN_PROGRESS",
+  "updated": "2026-10-23T11:35:00+08:00",
+  "this_run_best": {
+    "public_score": 0.86515,
+    "submission_id": 57488369,
+    "description": "v1: repro of public 0.86517 pipeline (CatBoost state + LGBM/CatBoost queue + NNLS ODME)",
+    "submitted_at": "2026-10-21T15:42:19Z",
+    "rank": 200,
+    "rank_total_teams": 582,
+    "rank_evidence": "evidence/rank_*.json (kaggle CLI live, 2026-10-23 11:15 local)"
+  },
+  "account_historical_best": null,
+  "account_historical_best_note": "not independently verified; only this run's submissions checked",
+  "submissions_this_run": [
+    {"id": 57488369, "score": 0.86515, "date": "2026-10-21T15:42:19Z", "desc": "v1 pipeline repro"},
+    {"id": 57490319, "score": 0.86134, "date": "2026-10-21T16:45:09Z", "desc": "v2 physics+queue ensemble (regression)"},
+    {"id": 57495624, "score": 0.86237, "date": "2026-10-21T19:52:34Z", "desc": "v3 ongoing 0.45 physics ON"},
+    {"id": 57495719, "score": 0.86313, "date": "2026-10-21T19:56:51Z", "desc": "v3b ongoing 0.45 physics OFF"}
+  ],
+  "leaderboard_top": 0.92406,
+  "key_findings": [
+    "physics post-processing harmful (-0.00076 to -0.0038)",
+    "ongoing threshold 0.45 slightly better than 0.40 (+0.001)",
+    "local Task2 proxies do not predict LB (forum E-Max: +0.0135 local / -0.0028 LB)",
+    "onset localization is the biggest unsolved lever (30% of score)"
+  ],
+  "notes": "CLI api.kaggle.com writes 429 since Oct 22 16:50 local (rolling window, est clear Oct 23 ~16:50). MCP file-upload path discovered and validated (local/mcp_submit.py) — unblocked file submissions."
+}

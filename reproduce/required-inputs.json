@@ -1,0 +1,26 @@
+{
+  "inputs": [
+    {
+      "task": "housing",
+      "path": "runs/01-predicting-housing-affordability-in-the-u-s/data/train.csv",
+      "bytes": 1749122,
+      "sha256": "3a74b5fc7edb44e2e060ae0a300af538161494cd337330c65a7f95d680fc5cb2",
+      "usage": "submission_reconstruction_and_training"
+    },
+    {
+      "task": "housing",
+      "path": "runs/01-predicting-housing-affordability-in-the-u-s/data/test.csv",
+      "bytes": 1069448,
+      "sha256": "1f56c675fb742db79f8bad1ca859c8b4db118b3976717c72b1c41a34834740ea",
+      "usage": "submission_reconstruction_and_training"
+    },
+    {
+      "task": "housing",
+      "path": "runs/01-predicting-housing-affordability-in-the-u-s/external/us-zip-codes-demographics/zips.csv",
+      "bytes": 6794349,
+      "sha256": "2d41a833313890d6777eb0f1dd9e33422e1c40d98e2811f0a19ebb7eedbf754d",
+      "usage": "base_model_training_only"
+    }
+  ],
+  "policy": "Raw inputs stay outside Git; restore only from a trusted local artifact root, or obtain them from authorized official sources"
+}

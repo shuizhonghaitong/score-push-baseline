@@ -1,0 +1,12 @@
+{
+  "language": "python",
+  "kernelspec": {"name": "python3"},
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "competition_sources": ["misconception-detection-in-k-12-student-math-workings"],
+  "title": "Misconception Transductive kNN V1",
+  "code_file": "main.py",
+  "id": "lilac1996/misconception-detection-trans-knn-v1",
+  "kernel_type": "script"
+}

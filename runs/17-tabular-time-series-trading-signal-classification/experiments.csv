@@ -1,0 +1,10 @@
+id,ts,method,validation,score,artifact,outcome
+1,2026-10-22T01:05Z,label-reversal,"find_peaks(-log p, prom=0.00995) == label on 6131/6132 train",n/a,code/analyze2.py,exact rule found: LR>=PROM & RR>=PROM
+2,2026-10-22T01:20Z,uniform exact gate,"10-fold expanding AP","cv 0.227 / full-train 0.2251",code/cv6.py,baseline causal
+3,2026-10-22T01:40Z,LGB leaves5 c60 lr0.01 1500t + XGB d3 rank blend,10-fold expanding AP (last 60%),cv 0.3007,code/final.py,submission 57505194 -> public 0.28778 (rank 30)
+4,2026-10-22T01:55Z,extra causal feats (lr_z, newlows, walk, vz),10-fold expanding AP,no gain (0.294 vs 0.297 base),code/cv7.py,rejected
+5,2026-10-22T02:00Z,hard gate + within-gate rank by LR (drop depth),10-fold expanding AP,mean 0.3488 (stable 0.33-0.35 across windows),code/cv8.py code/cv9.py,submission 57505444 ERROR (not probabilities) -> v2b rescaled = 57505474 pending
+6,2026-10-22T02:06Z,hard gate + fuzz band [0.0098,PROM),10-fold expanding AP,same CV (optionality),code/cv9.py,submission 57505569 -> public 0.36833 (identical to v2b; fuzz rows all negative)
+7,2026-10-22T02:14Z,lr + 2*max(-r1,0)*(lr<0.02) shallow-flush bonus,10-fold expanding AP,0.3531 (vs 0.3488 lr only),code/interact.py,submission 57505803 -> public 0.35012 (WORSER; interaction did not transfer to test regime)
+8,2026-10-22T02:25Z,lr-rank + lam*model-rank (gate rows, RR target),10-fold expanding AP,0.3504/0.3239/0.3063 (worse),code/cv11.py,rejected: no residual signal in model
+9,2026-10-22T02:30Z,FINAL: hard gate (lr>=0.00995) + within-gate rank by lr,10-fold expanding AP,0.3488 stable across windows,code/final2.py,submission 57505474 = 0.36833 public, rank 18/40; stall declared - causal ceiling reached

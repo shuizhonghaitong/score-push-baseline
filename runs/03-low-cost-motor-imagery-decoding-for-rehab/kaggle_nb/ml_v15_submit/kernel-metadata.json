@@ -1,0 +1,17 @@
+{
+  "id": "lilac1996/lcmid-single-subject-ml-v15",
+  "title": "LCMID Single-Subject ML v15",
+  "code_file": "ml_v15_submit.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "competition_sources": [
+    "low-cost-motor-imagery-decoding-for-rehab"
+  ],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

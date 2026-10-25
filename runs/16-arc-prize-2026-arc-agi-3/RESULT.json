@@ -1,0 +1,11 @@
+{
+ "run": "16-arc-prize-2026-arc-agi-3",
+ "competition": "arc-prize-2026-arc-agi-3",
+ "account": "lilac1996",
+ "updated": "2026-10-23 13:56:46 CST",
+ "status": "in_progress",
+ "this_run_best_score": null,
+ "submissions": [],
+ "pushed": {},
+ "notes": "Batch-session quota (account-level, shared with other runs) gates kernel pushes; see orch2b.log, experiments.csv, evidence/ for details."
+}

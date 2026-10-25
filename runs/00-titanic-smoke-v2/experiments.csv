@@ -1,0 +1,2 @@
+attempt,method,validation_protocol,validation_score,artifact,code_version,submitted,submission_id,public_score,outcome,timestamp_utc
+S1,"RandomForestClassifier(400,depth=6,leaf>=3) + OrdinalEncoder+median imputer, 11 features (Pclass,Sex,Age,SibSp,Parch,Fare,Embarked,Title,FamilySize,IsAlone,CabinDeck)","stratified 80/20 holdout, seed 42",0.8212,outputs/submission_smoke_v2.csv (sha256 7a651d719c3f2f3a),titanic_smoke.py (seed 42),yes,57474412,0.77751,COMPLETE,2026-10-21T08:51:21Z

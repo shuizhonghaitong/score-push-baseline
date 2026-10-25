@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-25T21:25:12.221657+08:00",
+  "staged_files_reviewed": 1230,
+  "staged_bytes": 19653856,
+  "preserved_source_and_reference_files": 1185,
+  "missing_preserved_files": [],
+  "issues": [],
+  "passed": true,
+  "raw_data_uploaded": false,
+  "later_research_assets_included": false,
+  "original_tool_tests_passed": 21,
+  "preservation_tests_passed": 5,
+  "housing_full_retraining": "90 fits completed; historical submission byte identical",
+  "eeg_submission_reconstruction": "360 rows; historical submission byte identical"
+}

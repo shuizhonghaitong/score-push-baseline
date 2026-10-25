@@ -1,0 +1,20 @@
+{
+ "id": "lilac1996/filament-magfilo-v2",
+ "title": "Filament Magfilo V2",
+ "code_file": "train_v2.py",
+ "language": "python",
+ "kernel_type": "script",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "machine_shape": "GPU_P100",
+ "dataset_sources": [],
+ "competition_sources": [
+  "filament-segmentation-2026"
+ ],
+ "kernel_sources": [
+  "lilac1996/filament-magfilo-v1"
+ ],
+ "model_sources": []
+}

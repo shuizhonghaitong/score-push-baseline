@@ -1,0 +1,41 @@
+lgb63 fold 0 done
+lgb63 fold 1 done
+lgb63 fold 2 done
+lgb63 fold 3 done
+lgb63 fold 4 done
+lgb31 fold 0 done
+lgb31 fold 1 done
+lgb31 fold 2 done
+lgb31 fold 3 done
+lgb31 fold 4 done
+lgb127 fold 0 done
+lgb127 fold 1 done
+lgb127 fold 2 done
+lgb127 fold 3 done
+lgb127 fold 4 done
+lgb63nc fold 0 done
+lgb63nc fold 1 done
+lgb63nc fold 2 done
+lgb63nc fold 3 done
+lgb63nc fold 4 done
+xgb7 fold 0 done
+xgb7 fold 1 done
+xgb7 fold 2 done
+xgb7 fold 3 done
+xgb7 fold 4 done
+xgb5 fold 0 done
+xgb5 fold 1 done
+xgb5 fold 2 done
+xgb5 fold 3 done
+xgb5 fold 4 done
+lgb63 oof rmse 8.064
+lgb31 oof rmse 8.072
+lgb127 oof rmse 8.153
+lgb63nc oof rmse 8.041
+xgb7 oof rmse 8.092
+xgb5 oof rmse 8.18
+ridge a=0: oof rmse 7.926 coefs [ 0.101  0.263 -0.024  0.252  0.2    0.21 ]
+ridge a=1: oof rmse 7.926 coefs [ 0.101  0.263 -0.024  0.252  0.2    0.21 ]
+ridge a=10: oof rmse 7.926 coefs [ 0.101  0.263 -0.024  0.252  0.2    0.21 ]
+ridge a=100: oof rmse 7.926 coefs [ 0.102  0.262 -0.023  0.251  0.2    0.21 ]
+best blend a= 0 oof rmse 7.926

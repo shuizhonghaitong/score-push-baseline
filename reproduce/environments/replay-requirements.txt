@@ -1,0 +1,5 @@
+# Preservation-time versions verified on Python 3.11; not a universal historical environment lock.
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+scikit-learn==1.9.1

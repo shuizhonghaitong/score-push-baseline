@@ -1,0 +1,18 @@
+{
+ "title": "run06 prefit 4-member SVC ensemble (Name That LLM)",
+ "subject_codebases": "name-that-llm",
+ "keywords": [
+  "name-that-llm",
+  "tfidf",
+  "svc",
+  "prefit"
+ ],
+ "description": "Prefit 4-member TF-IDF LinearSVC ensemble for Name That LLM (run 06). Views (vocab+idf), member coefs/intercepts, meta. For internal notebook use.",
+ "is_private": true,
+ "id": "lilac1996/ntl-run06-svc4",
+ "licenses": [
+  {
+   "name": "cc0-1.0"
+  }
+ ]
+}

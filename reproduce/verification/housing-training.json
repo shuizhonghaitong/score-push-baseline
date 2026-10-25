@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-10-25T21:12:28.801688+08:00",
+  "kind": "housing_base_model_retraining",
+  "status": "completed",
+  "training_rerun": true,
+  "official_submissions": 0,
+  "cpu_threads": 16,
+  "expected_model_fits": 90,
+  "input_sha256": {
+    "runs/01-predicting-housing-affordability-in-the-u-s/data/train.csv": "3a74b5fc7edb44e2e060ae0a300af538161494cd337330c65a7f95d680fc5cb2",
+    "runs/01-predicting-housing-affordability-in-the-u-s/data/test.csv": "1f56c675fb742db79f8bad1ca859c8b4db118b3976717c72b1c41a34834740ea",
+    "runs/01-predicting-housing-affordability-in-the-u-s/external/us-zip-codes-demographics/zips.csv": "2d41a833313890d6777eb0f1dd9e33422e1c40d98e2811f0a19ebb7eedbf754d"
+  },
+  "source_scripts": {
+    "oof_stack.py": "f8ae6023b362afe99f63644f577586fb43fb9c1f9c3d4281f84feedc76c680a4",
+    "stack_full.py": "8fcb049aefd6307b00cd312b579c530fed4862c7d7bde5b5a362ec34c3ee6e65",
+    "pipeline_v2.py": "7ca7383a9e4143a9c3ea728f3be4f38ee578c595184d51d6a957a8944f7befd6"
+  },
+  "passed": true,
+  "rows": 8534,
+  "submission_sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+  "reference_sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+  "byte_identical_to_historical_best": true,
+  "max_absolute_submission_difference": 1.4210854715202004e-14,
+  "max_absolute_base_blend_difference": 0.0,
+  "retrained_stack_oof_rmse": 7.926081285926268,
+  "official_score_reproduced": false,
+  "interpretation": "Full CPU training completed; exact-file equality is reported independently from execution success",
+  "finished_at": "2026-10-25T21:18:15.419398+08:00",
+  "elapsed_seconds": 346.6174294501543,
+  "completed_model_fits": 90
+}

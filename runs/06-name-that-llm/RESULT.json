@@ -1,0 +1,69 @@
+{
+ "competition": "name-that-llm",
+ "run": "06-name-that-llm (autonomous, resume 2026-10-22)",
+ "status": "in_progress",
+ "human_intervention": "none",
+ "metric": "balanced accuracy (public LB until close)",
+ "this_run_scored_submissions": [
+  {
+   "id": 57463768,
+   "score": 0.32,
+   "date": "2026-10-21T03:32Z",
+   "desc": "run-scoped baseline"
+  },
+  {
+   "id": 57480574,
+   "score": 0.41,
+   "date": "2026-10-21T11:57Z",
+   "desc": "4-view TF-IDF + LinearSVC C=0.25 + Sinkhorn + emdash"
+  },
+  {
+   "id": 57485820,
+   "score": 0.444,
+   "date": "2026-10-21T14:22Z",
+   "desc": "7-view TF-IDF, 4-member SVC log-prob blend + Sinkhorn + emdash"
+  }
+ ],
+ "best_score_this_run": 0.444,
+ "best_score_this_run_submission": 57485820,
+ "account_historical_best": null,
+ "rank_evidence": [
+  {
+   "ts": "2026-10-22T14:55:22Z",
+   "rank": 1476,
+   "teams": 2535,
+   "score": 0.444,
+   "leader": 0.7,
+   "bronze_line": 0.604,
+   "file": "work/rank_evidence_20261022_14*.txt"
+  }
+ ],
+ "artifacts": {
+  "notebooks": [
+   "notebookG (nlm-v21 fork)",
+   "notebookF (0.612 fork)",
+   "notebookE2 (robust fork08b)",
+   "notebookB (blend v3)"
+  ],
+  "watcher": "code/fe_b_early.sh (v2, PTY 28260); logs work/fe_b_early.log (v1) work/fe_b_early2.log (v2)",
+  "data": "work/ntl-two-stage-lora.zip (+ work/lora_ds extracted)"
+ },
+ "failures": [
+  {
+   "what": "notebookE lilac1996/ntl-run06-fork08b v3",
+   "why": "12h Kaggle cell timeout; 16.4GB model dataset load on throttled FS",
+   "mitigation": "E2 uses model_source base + hard deadline fallback"
+  }
+ ],
+ "pending": [
+  "C2 (lilac1996/ntl-run06-v3-cpu) push blocked by account-level SaveKernel 429 since 09:50 CST; retry loops scheduled (10min until 12:16, 30min until 15:50, manual after 16:00 CST)",
+  "G/F/E2/B runs + submits after GPU quota recovery (used 42.5h > 30h cap; reset 2026-10-24T00:00Z); sentinel rescues any 429'd watcher push",
+  "offline blends: v2 does GE/GEB on Oct 24; blend_gec2.py (G+E2+C2) queued for Oct 25 slot"
+ ],
+ "notes_2026_10_23": [
+  "CPU v3: 5-member TF-IDF SVC (w12/c26_400/w13_400/fn13/c37, equal weight) + sinkhorn->emdash + Hungarian on fcluster(0.90/0.85) dense clusters 12-18; clean-protocol val 0.4679 safe / 0.5593 hung-est (ARI 0.996)",
+  "blend label-order bug found & fixed across G/F/E2 + all blend scripts (order files + blend_common.to_canon)",
+  "datasets: lilac1996/ntl-run06-svc5 (v1, superseded) and lilac1996/ntl-run06-svc5b (final content)",
+  "new watchers: sup_gap (partial-quota B/E2/F), push_c2_retry x2, sentinel (429 push rescue)"
+ ]
+}

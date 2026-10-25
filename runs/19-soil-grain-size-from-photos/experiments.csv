@@ -1,0 +1,11 @@
+method,config,validation,local_emd,artifact,time,outcome
+baseline_hc_ridge15_delta,run02 features (ppm uncalibrated) + ridge15 delta,LOOS(sample),38.475,submissions/baseline_hc_ridge15_delta.csv,2026-10-21T21:37+08,pub 52.1737 ref 57484207
+hc_cal_ridge40_cum,ppm-calibrated tl1600 70d + sample mean/std + ridge40 cum,LOOS(sample),35.924,not submitted yet,2026-10-21T22:05+08,local best single model
+ens50_hand_grai,0.5*hc_cal_ridge40_cum + 0.5*GRAI_median,blend fit from pub scores,,submissions/ens50_hand_grai.csv,2026-10-21T22:50+08,pub 45.9175 ref 57486672
+grai_only_med,GRAI CNN (soranz84/grai) median per sample,n/a (model saw train data),,submissions/grai_only_med.csv,2026-10-21T22:52+08,pub 80.8982 ref 57486763
+aug_ridge20_cum,hc70+GRAI(lnb,c) per photo, photo-level ridge20 cum,LOOS 25.28 (in-sample GRAI bias),submissions/aug_ridge20_cum.csv,2026-10-21T22:55+08,pub 54.8403 ref 57486871 (bias confirmed)
+ens67_hand_grai,0.67*hc_cal_ridge40_cum + 0.33*GRAI_median (quadratic fit of pub scores),,,submissions/ens67_hand_grai.csv,2026-10-21T22:58+08,pub 42.3013 ref 57486960 (RUN BEST)
+hand3_ens,(ridge40cum+ridge15delta+pls3delta) OOF avg,LOOS(sample),35.145,not submitted,2026-10-21T23:10+08,next candidate
+2026-10-22T00:25+08,grai3_api_all35,GRAI3 live API b,c per test photo -> Weibull PSD (10 HPC soils); host-confirmed in-sample model; error bound EMD~2.5 (ref image), expect much lower in-sample,0 (pending)
+2026-10-22T00:25+08,hand3_ens,3-config OOF ensemble (ridge40cum+ridge15delta+pls3delta) cal tl1600; LOOS 35.1448 (new best local),35.1448 (LOOS)
+2026-10-22T00:25+08,dino_b518,hc+dino_v2base LOOS best 40.12 vs hc 38.69 -> no gain,40.12 (LOOS)

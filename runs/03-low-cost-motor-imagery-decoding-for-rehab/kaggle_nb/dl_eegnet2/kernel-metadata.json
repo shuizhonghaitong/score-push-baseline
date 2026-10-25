@@ -1,0 +1,18 @@
+{
+  "id": "lilac1996/lcmid-single-subject-dl-eegnet-v2",
+  "title": "LCMID Single-Subject DL EEGNet v2",
+  "code_file": "dl_eegnet.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_gpu_type": "P100A",
+  "enable_tpu": "false",
+  "enable_internet": "false",
+  "competition_sources": [
+    "low-cost-motor-imagery-decoding-for-rehab"
+  ],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

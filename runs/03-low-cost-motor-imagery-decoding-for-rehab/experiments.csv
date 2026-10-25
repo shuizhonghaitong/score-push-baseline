@@ -1,0 +1,27 @@
+attempt,date,method,protocol,score,notes
+1,2026-10-21,ML v1 ensemble: bp+rts(6 bands)+csp(2 bands) x {lr_0.1,lr_1,lr_10,lda_0.5} prob avg,17-subj 5fold CV (train runs1-3) + run3 holdout,0.7774/0.6765,offset 0.0; state/cv_all.json; submission blocked by www.googleapis.com route -> notebook route
+2,2026-10-21,ML v2-B: same features, 7 finer bands, csp 3 bands, offset 0.5s,17-subj 5fold + run3,0.7780/0.6706,not better than v1; state/cv_v2_b.json
+3,2026-10-21,ML v2-C: 7 bands, csp 3, offset 1.0s,17-subj 5fold + run3,0.7692/0.6353,worse; state/cv_v2_c.json
+4,2026-10-21,DL EEGNet (F1=8,D=2,F2=16) 60ep aug,17-subj 5fold + run3,0.6215/0.6941,kaggle P100 nb lilac1996/lcmid-single-subject-dl-eegnet v1; weaker than ML
+5,2026-10-21,ML v1 8cfg ensemble (all/rts/bp_rts x lr_0.1,lr_1,lr_10,lda_0.5),17-subj 5fold + run3,0.7774/0.6647,PUBLIC 0.77 rank 38/50; sub 57482982
+6,2026-10-21,ML v2: 8cfg A + w3=3 + per-subject OOF threshold,17-subj 5fold + run3,0.7774/0.6647,PUBLIC 0.77 rank 38/50; sub 57484178
+7,2026-10-21,Ensemble strategy study (11cfg + csp/bp/td extras),17-subj 5fold OOF,14cfg: u=0.8044 a5=0.8074 a3=0.8054 a5a3=0.8075 (acc5_thr); 11cfg: u=0.7984 a5=0.8026 a3=0.7935 a5a3=0.7978,extras weak (csp .724 bp .734 td .627); state/cv_v4_ens*.json
+8,2026-10-21,ML v3: 11cfg (A off0 + B off0.5) uniform weights + OOF threshold,RUNNING kaggle nb,_,self-contained compute+submit nb lilac1996/lcmid-single-subject-ml-v3
+9,2026-10-21,ML v4: 11cfg + per-config OOF-acc weights + OOF threshold,RUNNING kaggle nb,_,self-contained compute+submit nb lilac1996/lcmid-single-subject-ml-v4
+10,2026-10-21,ML v3/v4 notebook v1 crash: NameError SLUG at final in-kernel submit after full compute; fixed in v2 code (local SLUG),_,_,outputs valid but failed-run output not mountable
+11,2026-10-21,ML v4 resubmit (v2, SLUG fixed): 11cfg OOF-acc weighted,17-subj 5fold,0.8026,PUBLIC 0.78 rank 36/51 NEW BEST; sub 57487219
+12,2026-10-21,ML v3 resubmit (v2, SLUG fixed): 11cfg uniform,17-subj 5fold,0.7984,PUBLIC 0.79 rank 36/51 NEW BEST; sub 57487546
+13,2026-10-21,ML v5: 23cfg + acc5-floor0.76 weights,17-subj 5fold,~0.82 honest (0.8468 w/ cherry-pick bias),PUBLIC 0.78; sub 57488811
+14,2026-10-21,V6 study: 35cfg grid; honest all-17-subject strategies,17-subj 5fold + half-split selection validation,a5=0.8096 tk5=0.8349 tk6=0.8356 a5h_mean=0.8332 (acc5_thr); top6 selection +0.022 half-split-verified; state/cv_v6_ens2/3.json
+15,2026-10-21,ML v6 nb built (35cfg + per-subject top6 + OOF thr),local smoke (S001 0.7636->0.8182),_,push scheduled after 00:00 UTC quota reset
+16,2026-10-22,w3 sweep with proper run3 replication (35cfg),17-subj 5fold,_,w3=3+tk5 best 0.8369; w3=5 worse; state/cv_v6_w{1,2,3,5}_rep.json
+17,2026-10-22,2-seed selection (seeds 42+7) vs single,17-subj 5fold,_,tk5_2s 0.8365 ~= tk5 0.8369; keep seed 42; state/cv_v6_2seed.json
+18,2026-10-22,B off0.0 +5 cfgs (40cfg),17-subj 5fold w3=3,_,tk5 0.8335 < 35cfg 0.8369; extra noise, rejected; state/cv_v7_w33.json
+19,2026-10-22,TTM Riemannian test-time mean validation,run3 holdout (test-session proxy),_,lam0.5 +0.012..+0.047 on all/rts/bp_rts; lam1.0 negative; v8 nb = 35cfg+6 TTM cfgs
+20,2026-10-22,ML v8 local full run (41cfg + 6 TTM lam0.5, tk5, w3=3),17-subj 5fold,0.8349,~= v6 0.8369 on OOF; TTM value only visible in run3-session proxy (+0.012..+0.047); reserved slot 2
+21,2026-10-22,ML v12 (v6 + OOF-thr shrink 0.5 toward 0.5),17-subj 5fold full-notebook run,0.8369,CV-neutral vs v6; candidate slot 3 if TTM inconclusive
+22,2026-10-22,43cfg finer offset grid (rts/all x 0.125/0.375/0.625/0.875),17-subj 5fold w3=3,tk5=0.8346 tk6=0.8372,no improvement over 35cfg (0.8369); pool saturated, rejected; state/cv_v13.json
+23,2026-10-22,FBT high-res bandsets C(10 bands 2-30)/D(14 bands 2-30) + 35cfg,17-subj 5fold w3=3,tk5=0.8469 tk6=0.8482,+0.010 vs v6; C/D selected 4-7x each; notebook full run verified 0.8469; v14 = new slot 2
+24,2026-10-22,ML v15 (v14 pool + TTM C-bands lam0.5 x3, 44cfg, top5, w3=3),17-subj 5fold full-notebook local run,0.8490,+0.0021 vs v14 (0.8469); per-subject: S004/S005/S010/S016/S018 improved, S001/S014/S017 slightly down; state/diag_v15_local.json; slot 1
+25,2026-10-22,ML v16 (v15 + TTM C/D lam0.3/0.7, 59cfg, top5, w3=3),17-subj 5fold full-notebook local run,RUNNING (session 90258),_,slot 3 candidate if CV >= 0.8469
+26,2026-10-22,ML v16 (v15 + TTM C/D lam0.3/0.7, 59cfg, top5, w3=3),17-subj 5fold full-notebook local run,0.8453,slightly below v15 (0.8490) on OOF-CV; kept as slot 3 = test-time TTM-coverage bet (run3-session proxy: TTM +0.012..+0.047 not visible in OOF); state/diag_v16_local.json

@@ -1,0 +1,27 @@
+{
+ "id": "lilac1996/arc-agi-3-ms2-harness-run16-v1",
+ "title": "Arc Agi 3 Ms2 Harness Run16 V1",
+ "code_file": "nb.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_internet": false,
+ "enable_gpu": false,
+ "enable_tpu": false,
+ "accelerator": "nvidiaRtxPro6000",
+ "machine_shape": "nvidiaRtxPro6000",
+ "dataset_sources": [
+  "dfranzen/taaf-kaggle-source-bundle-copy",
+  "dfranzen/pennyroyal-v253"
+ ],
+ "competition_sources": [
+  "arc-prize-2026-arc-agi-3"
+ ],
+ "model_sources": [
+  "dfranzen/intel-qwen3.8-flash-next-w4a16-autoround/transformers/default/1",
+  "dfranzen/albucino-qwen3-8-flash-next-drafter/transformers/default/1"
+ ],
+ "keywords": [
+  "gpu"
+ ]
+}

@@ -1,0 +1,60 @@
+# Run environment
+Use the available $kaggle skill. This is one unattended competition run; no human
+will provide advice or operate the tools during it. Resolve errors autonomously;
+if an unavoidable login, agreement or permission is missing, record a blocked
+RESULT.json and finish. Authorized: modelling, training, downloading allowed data,
+private competition Notebooks, and multiple useful official submissions within
+the live Kaggle quota. Inspect previews then proceed without asking again.
+
+The competition is tabular-time-series-trading-signal-classification. Keep code, evaluated attempts and RESULT.json
+in this directory. Reuse authorized past code and data; preserve originals. The
+official raw-data caches include
+/mnt/disk3/liuyutong_home/workspace/kaggle and
+/mnt/disk3/liuyutong_home/workspace/skill/reruns. No old history exclusions or one-submit cap apply.
+Name That LLM historical preflight evidence is saved at
+/mnt/disk3/liuyutong_home/workspace/skill/score-push/.local/name-that-llm-history-preflight.json. The old B02 protected
+attempt remains unknown in its preserved ledger; do not restore, modify or retry
+that old job/artifact. This new autonomous run is separately authorized: use
+distinct candidate code and a private Notebook, check live account submissions
+and quota, and reconcile any uncertain writes created by this run before continuing.
+
+Python and Kaggle CLI are from /mnt/disk3/liuyutong_home/miniconda3/envs/kaggle/bin. The shared environment is read-only;
+install additional packages in a project-local venv with --system-site-packages.
+Use exec_command with login=false when available: host login startup scripts can
+replace proxy variables and PATH. Preserve the configured environment in child
+shells and verify its effective route before transfers. Reuse packages and caches.
+Kaggle authentication is already selected by KAGGLE_API_TOKEN pointing to a private
+file; do not print its contents or credentials. If it expires, preview then run
+the skill's auth-session command with --output /mnt/disk3/liuyutong_home/workspace/skill/score-push/.private/kaggle-access-token and --yes.
+
+Both cases of HTTP(S)_PROXY explicitly use the unmetered 172.28.4.16:18999 route.
+Preserve localhost/private NO_PROXY. Probe destinations before large transfers;
+do not fall back to 17890 or unconfirmed proxies. HF_ENDPOINT=https://hf-mirror.com
+is set before imports; prefer local caches. Stop large transfers if the unmetered
+route is unavailable. Public research through bounded HTTP requests is available;
+the hosted web-search tool is not configured for this local model.
+
+Qwen inference runs on GPUs 4-7; do not stop or modify their services.
+The provider accepts at most four image inputs per request, including images
+already present in conversation history. Use a contact sheet for visual previews
+and text/numeric inspection for subsequent bulk analysis; avoid accumulating
+more than four images in the model context.
+Prefer local GPU training and feature extraction using the shared pool on
+host GPUs [2, 3]. The ordinary Codex tool sandbox hides NVIDIA
+devices, so CUDA_VISIBLE_DEVICES alone does not enable local training. Read
+/mnt/disk3/liuyutong_home/workspace/skill/score-push/LOCAL_TRAINING.md and use /mnt/disk3/liuyutong_home/workspace/skill/score-push/tools/local_training.py to queue
+Python training scripts from this run. The host worker supplies explicit GPU
+devices, restricts writes to this run, and returns logs/checkpoints here.
+Reuse the existing CUDA-enabled Python at /mnt/disk3/liuyutong_home/miniconda3/envs/qwen/bin/python; a run-local venv
+with --system-site-packages can add dependencies. Do not replace it with CPU-only
+PyTorch. Prepare data/weights in the normal tool environment first; training jobs
+run offline. Respect existing jobs and wait for an available pool GPU. Use Kaggle
+remote GPU when local resources cannot support the workload or the competition
+requires remote execution. Record the actual training host/GPU in the report.
+CPU and authorized Kaggle private remote compute are available. Other runs may
+share the account's remote accelerator quota and concurrency; inspect active jobs
+and wait instead of cancelling another run. Limit CPU thread oversubscription.
+No fixed experiment-round or score threshold is imposed. Finish after useful
+improvement stalls, preserving the best valid artifacts and scored submission.
+Distinguish this run's best public score from account historical best/rank and
+save timestamped rank evidence; unverified values stay null.
