@@ -1,0 +1,86 @@
+{
+  "checked_at": "2026-10-25T21:28:42.858583+08:00",
+  "source_commit": "628a3923bf004d8eefe66b1a9b4e41b5dc9eafce",
+  "passed": true,
+  "scope": "Fresh local Git clone; Python audit hook rejects original workspace reads and network connections. This is a dependency-portability check, not an adversarial OS sandbox. Housing official CSVs were supplied separately; no external training dataset was required for reconstruction.",
+  "checks": [
+    {
+      "command": [
+        "reproduce.py",
+        "verify"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "reproduce.py",
+        "rebuild",
+        "eeg"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "reproduce.py",
+        "restore",
+        "--source-root",
+        "/tmp/score-push-baseline-clone-l11ulo5c/inputs",
+        "--task",
+        "housing"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "reproduce.py",
+        "rebuild",
+        "housing"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "reproduce/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "rebuilt_submissions": {
+    "eeg": {
+      "passed": true,
+      "rows": 360,
+      "sha256": "9cdcbee0421bc33c667917cf12c8925baf74cac57d0a551c4cf79ed49e1ab4ae",
+      "byte_identical": true
+    },
+    "housing": {
+      "passed": true,
+      "rows": 8534,
+      "sha256": "d12d391ff310fc500158803542a0f5642cb2fb047f1dd44a8f0e08355b73277f",
+      "byte_identical": true
+    }
+  }
+}

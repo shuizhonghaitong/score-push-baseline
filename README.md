@@ -71,6 +71,7 @@ python -B reproduce.py train-housing --output-root artifacts/housing-training
 
 - 原始数据、大模型、训练权重、完整会话、凭据均不上传。两场用于核验的小型参考预测和历史最终提交通过明确清单保留；这些不是训练权重。
 - 本机恢复的原始数据仍在忽略目录中；克隆到另一台机器不会自动带上这些数据。大产物原位置和已有哈希见 [baselines.json](reproduce/baselines.json)。
+- 原机另存 `.local/housing-inputs-20261025.tar.gz`，包含上述三份精确 Housing 输入和清单，供本地留档；它不上传 Git。需要恢复时先解压到可信输入目录，再以该目录作为 `restore --source-root`。
 - [环境记录](reproduce/environments/) 保存当前 CPU/GPU 环境的 Python 和安装包版本，不冒充每次历史运行的完整环境锁。
 - 其他比赛的原代码和历史结果已保存，但逐场完整训练、实际划分和最终入口仍有缺口，见比赛索引。历史公榜分数不作为本次新取得的分数。
 - 原调度器包含原机路径、Qwen 服务和账号依赖，保留作源码参考。直接重跑整个自主参赛流程还需要配置这些服务及权限；它不是确定性重放同一条 agent 轨迹。日常离线核验使用上面的 `reproduce.py` 入口。
@@ -83,3 +84,5 @@ python -B -m unittest discover -s reproduce/tests -p 'test_*.py'
 ```
 
 原始 `score-push/` 和研发仓库 `kaggle-experiment-lab` 不在此次发布中被修改或替换。
+
+发布快照标签为 `baseline-20261025`。独立克隆、输入恢复、两项提交重建及测试结果见 [clean-clone.json](reproduce/verification/clean-clone.json)。该检查使用 Python 审计钩子拒绝原工程路径读取和网络连接，用于核对依赖可移植性，不作为对抗性安全沙箱证明。
